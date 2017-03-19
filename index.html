@@ -1,52 +1,61 @@
 <!DOCTYPE html>
-<html ng-app="andromeda" lang="en">
+<html ng-app="app" lang="en">
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Andromeda is a different kind of tech company. We look at real-world problems and design a unique combination of technology and services to generate value for everyone. We believe that sustainable companies should generate net social gain with every product and service they offer."/>
-    <title>Andromeda LLC</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"> 
+    <meta name="description" content="Learn how easy it can be to use Firebase to take your app idea from concept to production. In this workshop you will build your own Twitter-like social messaging application, start to finish."/>
+    <title>Playing With Fire</title>
+
+    <!-- Skeleton -->
+    <!--<link href="https://cdnjs.cloudflare.com/ajax/libs/skeleton/2.0.4/skeleton.min.css" rel="stylesheet">-->
+
+    <!-- Font Awesome -->
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
 
     <link href="https://fonts.googleapis.com/css?family=Raleway:400,700" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="app/styles/styles.css">
 
-    <!-- <link rel="icon" type="image/png" href="favicon.png" /> -->
+    <link rel="icon" type="image/png" href="app/images/icons/icon_favicon.png" />
 
     <!-- Schema.org markup for Google+ -->
     <meta itemprop="name" content="Playing With Fire">
     <meta itemprop="description" content="Learn how easy it can be to use Firebase to take your app idea from concept to production. In this workshop you will build your own Twitter-like social messaging application, start to finish.">
-    <!-- <meta itemprop="image" content="https://andromeda16.com/images/logo-200x200.png"> -->
+    <!-- <meta itemprop="image" content="http://playingWithFire.live/app/images/icons/icon-200.png"> -->
 
     <!-- Twitter Card data -->
     <meta name="twitter:description" value="Learn how easy it can be to use Firebase to take your app idea from concept to production. In this workshop you will build your own Twitter-like social messaging application, start to finish.">
     <meta name="twitter:title" content="Playing with Fire">
     <meta name="twitter:card" content="summary">
     <!-- Twitter Summary card images must be at least 120x120px -->
-    <!-- <meta name="twitter:image" content="https://andromeda16.com/images/logo-200x200.png"> -->
+    <!-- <meta name="twitter:image" content="http://playingWithFire.live/app/images/icons/icon-200.png"> -->
     <!-- Open Graph data -->
     <meta property="og:title" content="Playing With Fire" />
     <meta property="og:type" content="article" />
-    <!-- <meta property="og:url" content="https://andromeda16.com" /> -->
-    <!-- <meta property="og:image" content="https://andromeda16.com/images/logo-200x200.png" /> -->
+    <meta property="og:url" content="http://PlayingWithFire.live" />
+    <!-- <meta property="og:image" content="http://playingWithFire.live/app/images/icons/icon-200.png" /> -->
     <meta property="og:description" content="Learn how easy it can be to use Firebase to take your app idea from concept to production. In this workshop you will build your own Twitter-like social messaging application, start to finish." />
 
   </head>
-  <body class="home">
+  <body>
 
-    <h1>Playing With Fire</h1>
+    <div ng-include src="'app/modules/core/components/header.html'"></div>
 
-    <main class="group" ng-view></main>
+    <main ui-view></main>
+
+    <footer-directive></footer-directive>
 
     <!-- Angular JS -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.8/angular.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.8/angular-route.min.js"></script>
-
-    <!-- Firebase -->
-    <!-- <script src="https://www.gstatic.com/firebasejs/3.3.0/firebase.js"></script> -->
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.6/angular.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-router/0.4.2/angular-ui-router.min.js"></script>
 
     <!-- App JS -->
+    <script src="app.js"></script>
+    <script src="app/modules/core/core.module.js"></script>
+    <script src="app/modules/core/components/footer.js"></script>
 
     <!-- live relead -->
-    <script src="//localhost:9091"></script>
+    <script ng-if="window.location.host === 'localhost:8080'" src="//localhost:9091"></script>
 
   </body>
 </html>

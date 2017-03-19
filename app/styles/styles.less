@@ -1,1 +1,125 @@
-body {}
+@primary: #F88600;
+@secondary: #FFAF01;
+@tertiary: #FFCC01;
+@contrast: #59c2ff;
+
+@gray: #404040;
+
+html {
+  font-family: 'Raleway', 'Helvetica', 'sans-serif';
+  font-size: 100%;
+  color: @gray;
+}
+body {
+  font-size: 1rem;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  color: @primary;
+}
+
+sr-only {
+  position: relative;
+  display: block;
+  margin-left: -9999rem;
+  margin-top: -9999rem;
+}
+
+h1 {
+  font-size: 1.5rem;
+  font-weight: normal;
+}
+
+a.fireside {
+  background-image: url('/app/images/fireside-gray.svg');
+  height: 1.2rem;
+  width: 1.2rem;
+  margin-bottom: -.1rem;
+  vertical-align: baseline;
+  display: inline-block;
+  background-size: cover;
+  &:hover {
+    background-image: url('/app/images/fireside-blue.svg');
+  }
+}
+
+nav {
+  margin-bottom: 1rem;
+  img {
+    width: 1.75rem;
+    vertical-align: text-bottom;
+    margin-right: .25rem;
+  }
+  li {
+    list-style-type: none;
+    padding: 0 .75rem;
+  }
+  li:first-child {
+    padding-left: 0;
+  }
+  ul {
+    display: flex;
+    align-items: baseline;
+    margin-bottom: 0;
+    padding-left: 0;
+  }
+}
+
+nav, footer {
+  a {
+    color: gray;
+    text-decoration: none;
+  }
+  a:hover,
+  a:focus,
+  a.active {
+    color: @contrast;
+  }
+}
+
+footer {
+  margin-top: 1rem;
+  img {
+    height: 1.25rem;
+    vertical-align: middle;
+    margin-top: -.3rem;
+  }
+  div:first-child {
+    float:left;
+    font-size: .75rem;
+  }
+  div:last-child {
+    float: right;
+    font-size: 1.25rem;
+    i {
+      margin-left: .25rem;
+    }
+  }
+}
+
+.home > div {
+  background: rgba(64, 64, 64, .075);
+  padding: 1.5rem;
+  border-radius: 6px;
+  font-size: 1.25rem;
+  p {
+    line-height: 2rem;
+  }
+  a {
+    display: block;
+    width: 8rem;
+    text-align: center;
+    border: solid 1px @gray;
+    padding: 1rem;
+    border-radius: 4px;
+    color: @gray;
+    text-decoration: none;
+    background: white;
+    margin: 0 auto;
+  }
+  a:focus,
+  a:hover {
+    border-color: @contrast;
+    color: @contrast;
+  }
+}
