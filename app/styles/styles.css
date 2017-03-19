@@ -68,7 +68,7 @@ nav a:focus,
 footer a:focus,
 nav a.active,
 footer a.active {
-  color: #59c2ff;
+  color: #26afff;
 }
 footer {
   margin-top: 1rem;
@@ -112,6 +112,6 @@ footer div:last-child i {
 }
 .home > div a:focus,
 .home > div a:hover {
-  border-color: #59c2ff;
-  color: #59c2ff;
+  border-color: #26afff;
+  color: #26afff;
 }
