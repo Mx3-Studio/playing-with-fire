@@ -14,3 +14,6 @@ Setup:
 3. $ npm run build:watch
 4. localhost:8080
 5. Happy Coding!
+
+If it crashes on you (mac)
+$ killall node
