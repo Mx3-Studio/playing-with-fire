@@ -6,6 +6,11 @@ html {
 body {
   font-size: 1rem;
 }
+nav,
+main,
+footer {
+  padding: 0 1rem;
+}
 h1,
 h2,
 h3,
@@ -13,6 +18,8 @@ h4,
 h5,
 h6 {
   color: #F88600;
+  margin-bottom: .25rem;
+  padding-bottom: 0.25rem;
 }
 sr-only {
   position: relative;
@@ -21,7 +28,6 @@ sr-only {
   margin-top: -9999rem;
 }
 h1 {
-  font-size: 1.5rem;
   font-weight: normal;
 }
 a.fireside {
@@ -36,8 +42,33 @@ a.fireside {
 a.fireside:hover {
   background-image: url('/app/images/fireside-blue.svg');
 }
+.next {
+  text-align: right;
+  margin-top: 2rem;
+}
+.next a {
+  display: inline-block;
+  text-align: center;
+  border: solid 1px #404040;
+  padding: 1rem;
+  border-radius: 4px;
+  color: #404040;
+  text-decoration: none;
+}
+.next a:after {
+  content: '\f061';
+  font-family: 'fontawesome';
+  margin-left: .5rem;
+}
+.next a:focus,
+.next a:hover {
+  border-color: #26afff;
+  color: #26afff;
+}
 nav {
   margin-bottom: 1rem;
+  padding-bottom: .5rem;
+  border-bottom: solid 1px rgba(64, 64, 64, 0.1);
 }
 nav img {
   width: 1.75rem;
@@ -72,6 +103,8 @@ footer a.active {
 }
 footer {
   margin-top: 1rem;
+  padding-top: .25rem;
+  border-top: solid 1px rgba(64, 64, 64, 0.1);
 }
 footer img {
   height: 1.25rem;
@@ -88,6 +121,13 @@ footer div:last-child {
 }
 footer div:last-child i {
   margin-left: .25rem;
+}
+pre {
+  background: rgba(64, 64, 64, 0.075);
+  border-radius: 4px;
+  border: solid 1px rgba(64, 64, 64, 0.25);
+  padding: .25rem;
+  overflow-x: scroll;
 }
 .home > div {
   background: rgba(64, 64, 64, 0.075);
@@ -115,3 +155,19 @@ footer div:last-child i {
   border-color: #26afff;
   color: #26afff;
 }
+/* Small devices (tablets, 768px and up) */
+@media (min-width: 768px) {
+  .columns {
+    display: flex;
+    justify-content: space-between;
+    align-items: stretch;
+    flex-wrap: nowrap;
+    margin: 0rem -1rem;
+  }
+  .columns > * {
+    padding: 0 1rem;
+    max-width: 30%;
+  }
+}
+/* Medium devices (desktops, 992px and up) */
+/* Large devices (large desktops, 1200px and up) */
