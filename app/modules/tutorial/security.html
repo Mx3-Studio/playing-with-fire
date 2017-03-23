@@ -1,0 +1,53 @@
+<h1>Security</h1>
+<h2>Success Criteria</h2>
+<ul>
+  <li>Login using Google OAuth</li>
+  <li>Display User Avatar and Display Name with messages</li>
+  <li>Prevent unauthorized access to Firebase objects</li>
+</ul>
+
+<div class="security">
+  <div>
+    <h2>Instructions</h2>
+    <ol>
+      <li>Enable the Google Sign-In provider from the Firebase Authentication console</li>
+      <li>Implement the authenticate method in the FirebaseAuth service (be sure to call processUserCredential on the returned UserCredential object, and to return a promise from the function)</li>
+      <li>Implement the logout method in the FirebaseAuth service (be sure to redirect to /login)</li>
+      <li>Implement the getProfileByID method in the ProfileService to return the user profile from /users/{userId}/profile</li>
+      <li>Update the createChat method in the ChatController to add the user attributes to the chat object</li>
+      <li>Update the Routes in app.routes.js to correctly resolve the currentUser which should be optional on / and /hashtag/:hash but required on /friends and /friends/:friend</li>
+      <li>Modify the database Rules in the Firebase console to reflect the following conditions:
+        <ol type="a">
+          <li>Anyone can read from check - /check</li>
+          <li>No one can write to check - /check</li>
+          <li>Anyone can read chats - /chats</li>
+          <li>Must be authenticated to write chats - /chats</li>
+          <li>A user can only write their own user object - /users/{userId}</li>
+          <li>Anyone can read the user’s profile - /users/{userId}/profile</li>
+        </ol>
+      </li>
+  </div>
+  <div>
+    <h2>Hints</h2>
+    <ul>
+      <li>You will use Firebase Authentication to perform Google OAuth: <a href="https://firebase.google.com/docs/auth/" target="_blank">Firebase Authentication</a></li>
+      <li>Use AngularFire $authWithOAuthPopup to login using Google: <a href="https://www.firebase.com/docs/web/libraries/angular/api.html#angularfire-users-and-authentication-authwithoauthpopupprovider-options" target="_blank">Angularfire Users and Authentication: $authWithOAuthPopup(provider[, options])</a></li>
+      <li>Use $firebaseObject to load the User Profile: <a href="https://github.com/firebase/angularfire/blob/master/docs/reference.md#firebaseobject" target="_blank"></a>API Reference | AngularFire: $firebaseObject</li>
+      <li>AngularFire provided methods for Angular Router resolution: <a href="https://github.com/firebase/angularfire/blob/master/docs/reference.md#waitforsignin" target="_blank">API Reference | AngularFire: $waitForSignIn()</a></li>
+      <li>Chats should now have the additional attributes:
+        <ul>
+          <li>displayName - the name of the user who created the chat, from their profile</li>
+          <li>uid - the ID of the User who created the chat</li>
+          <li>photoURL - the profile image of the person who created the chat</li>
+        </ul>
+      </li>
+      <li>Firebase database rules: <a href="https://firebase.google.com/docs/database/security/" target="_blank">Understand Firebase Realtime Database Rules</a></li>
+    </ul>
+  </div>
+</div>
+<h2>QA</h2>
+<p>Now run the application and visit <a href="http://localhost:8080/#/login">http://localhost:8080/#/login</a></p>
+<div class="guide-through clearfix">
+  <a class="previous" ui-sref="realTimeChat">Real-Time Chat</a>
+  <a class="next" ui-sref="">Private Messages</a>
+</div>

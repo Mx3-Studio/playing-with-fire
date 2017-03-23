@@ -27,7 +27,13 @@ h4,
 h5,
 h6 {
   color: #F88600;
-  margin-bottom: .25rem;
+  margin-bottom: .5rem;
+  padding-bottom: 0rem;
+  padding-top: 0;
+  margin-top: 0;
+  font-weight: normal;
+}
+h1 {
   padding-bottom: 1rem;
 }
 a,
@@ -50,9 +56,6 @@ sr-only {
   content: "";
   display: table;
   clear: both;
-}
-h1 {
-  font-weight: normal;
 }
 a.fireside {
   background-image: url('/app/images/fireside-gray.svg');
@@ -197,7 +200,9 @@ pre {
 /* Small devices (tablets, 768px and up) */
 @media (min-width: 768px) {
   .columns,
-  .gettingStarted > div {
+  .gettingStarted > div,
+  .real-time-chats,
+  .security {
     display: flex;
     justify-content: space-between;
     align-items: flex-start;
@@ -205,16 +210,22 @@ pre {
     margin: 0rem -1rem 1rem;
   }
   .columns > *,
-  .gettingStarted > div > * {
+  .gettingStarted > div > *,
+  .real-time-chats > *,
+  .security > * {
     padding: 0 1rem;
     width: 50%;
   }
   .columns > p,
-  .gettingStarted > div > p {
+  .gettingStarted > div > p,
+  .real-time-chats > p,
+  .security > p {
     display: block;
   }
   .columns img,
-  .gettingStarted > div img {
+  .gettingStarted > div img,
+  .real-time-chats img,
+  .security img {
     padding: 0;
     margin: 0;
   }

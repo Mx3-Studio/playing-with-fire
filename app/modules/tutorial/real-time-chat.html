@@ -1,0 +1,43 @@
+<h1>Real-Time Chat</h1>
+<h2>Success Criteria</h2>
+<ul>
+  <li>Display chat messages Firebase</li>
+  <li>Create new chat messages</li>
+  <li>Click on Hashtags to see only related chats</li>
+</ul>
+
+<div class="real-time-chats">
+  <div>
+    <h2>Instructions</h2>
+    <ol>
+      <li>Update the ChatController to get the chat thread from the database - /chats</li>
+      <li>Modify the createChat function in ChatController to get a key for the new chat object - /chats/{chatId}</li>
+      <li>Modify the createChat function to push the new chat to the chat thread by adding a path reference to the updates - /chats/{chatId}</li>
+    </ol>
+  </div>
+  <div>
+    <h2>Hints</h2>
+    <ul>
+      <li>Use the firebase Reference to select objects by path using child(): <a href="https://firebase.google.com/docs/reference/js/firebase.database.Reference" target="_blank">firebase.database.Reference</a></li>
+      <li>Use the AngularFire $firebaseArray for chats: <a href="https://www.firebase.com/docs/web/libraries/angular/api.html#angularfire-firebasearray" target="_blank">$firebasearray</a></li>
+      <li>Use the push method on the Reference to push a new object to Firebase and obtain the unique key</li>
+      <li>Update multiple items at once: <a href="https://firebase.google.com/docs/database/web/read-and-write#updating_or_deleting_data" target="_blank">Updating or deleting data</a></li>
+      <li>Chats contain the following attributes:
+        <ul>
+          <li>content: the chat message</li>
+          <li>timestamp: the UTC string representing the moment the chat was created</li>
+        </ul>
+      </li>
+    </ul>
+  </div>
+</div>
+<h2>QA</h2>
+<p>Now run the application and visit <a href="http://localhost:8080/#/chats" target="_blank">http://localhost:8080/#/chats</a></p>
+<p>
+  You should see all of the demo chats show up.
+  <br>You should be able to submit new chats which show up in the chat stream immediately and automatically.
+</p>
+<div class="guide-through clearfix">
+  <a class="previous" ui-sref="gettingStarted3">Configure Firebase connectivity</a>
+  <a class="next" ui-sref="security">Security</a>
+</div>
