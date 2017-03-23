@@ -17,10 +17,30 @@ nav, main, footer {
   padding: 0 1rem;
 }
 
+main {
+  img {
+    border: solid 1px rgba(64, 64, 64, .1);
+    border-radius: 4px;
+    box-shadow: 1px 1px 3px @gray;
+    width: 90%;
+    margin: 0 auto;
+    max-width: 50rem;
+    display: block;
+  }
+}
+
 h1, h2, h3, h4, h5, h6 {
   color: @primary;
   margin-bottom: .25rem;
-  padding-bottom: .25rem
+  padding-bottom: 1rem
+}
+
+a, a:link, a:visited {
+  color: @contrast;
+  text-decoration: none;
+}
+a:hover, a:focus {
+  color: darken(@contrast, 20%);
 }
 
 sr-only {
@@ -28,6 +48,12 @@ sr-only {
   display: block;
   margin-left: -9999rem;
   margin-top: -9999rem;
+}
+
+.clearfix:after {
+  content: "";
+  display: table;
+  clear: both;
 }
 
 h1 {
@@ -47,22 +73,34 @@ a.fireside {
   }
 }
 
-.next {
-  text-align: right;
-  margin-top: 2rem;
+.guide-through {
   a {
+    margin-top: 2rem;
     display: inline-block;
-    text-align: center;
     border: solid 1px @gray;
     padding: 1rem;
     border-radius: 4px;
     color: @gray;
     text-decoration: none;
   }
-  a:after {
-    content: '\f061';
+  a:after, a:before {
     font-family: 'fontawesome';
-    margin-left: .5rem;
+  }
+  a.previous {
+    float: left;
+    text-align: left;
+    &:before {
+      content: '\f060';
+      margin-right: .5rem;
+    }
+  }
+  a.next {
+    float: right;
+    text-align: right;
+    &:after {
+      content: '\f061';
+      margin-left: .5rem;
+    }
   }
   a:focus,
   a:hover {
@@ -96,7 +134,7 @@ nav {
 }
 
 nav, footer {
-  a {
+  a, a:link, a:visited {
     color: gray;
     text-decoration: none;
   }
@@ -166,21 +204,49 @@ pre {
 
 /* Small devices (tablets, 768px and up) */
 @media (min-width: 768px) {
-  .columns {
+  .columns,
+  .gettingStarted > div {
     display: flex;
     justify-content: space-between;
-    align-items: stretch;
+    align-items: flex-start;
     flex-wrap: nowrap;
-    margin: 0rem -1rem;
+    margin: 0rem -1rem 1rem;;
     & > * {
       padding: 0 1rem;
+      width: 50%;
+    }
+    & > p {
+      display: block;
+    }
+    img {
+      padding: 0;
+      margin: 0;
+    }
+  }
+  .columns {
+    & > * {
       max-width: 30%;
+    }
+    & > div {
+      align-items: stretch;
     }
   }
 }
 
 /* Medium devices (desktops, 992px and up) */
-@media (min-width: 992px) {}
+@media (min-width: 992px) {
+  html {
+    background: @gray;
+  }
+  body {
+    max-width: 992px;
+    padding: .5rem;
+    margin: 2rem auto;
+    background: white;
+    border-radius: 4px;
+  }
+}
 
 /* Large devices (large desktops, 1200px and up) */
-@media (min-width: 1200px) {}
+@media (min-width: 1200px) {
+}

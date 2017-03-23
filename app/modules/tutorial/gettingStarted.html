@@ -1,0 +1,46 @@
+
+  <h1>Getting Started: Setup the Firebase Console Account</h1>
+  <div class="gettingStarted">
+    <div>
+      <div><img src="app/images/screenshots/create-new-project.png" alt=""></div>
+      <div>
+        <p>Login to <a href="https://console.firebase.google.com" target="_blank">https://console.firebase.google.com</a> using your Google account.</p>
+        <p>Click <strong>Create New Project</strong></p>
+      </div>
+    </div>
+
+    <div>
+      <div><img src="app/images/screenshots/give-it-the-name-fireside.png" alt=""></div>
+      <p>...and give it the name "Fireside"</p>
+    </div>
+
+    <div>
+      <div><img src="app/images/screenshots/database.png" alt=""></div>
+      <div>
+        <p>Open the new Fireside project</p>
+        <p>Click Database then Rules</p>
+      </div>
+    </div>
+
+    <div>
+      <div><img src="app/images/screenshots/databse-rules.png" alt=""></div>
+      <div>
+        <p>For now change the rules to</p>
+        <code><pre>
+          {
+            “rules”: {
+              “.read”: true,
+              “.write”: true
+            }
+          }
+        </pre></code>
+        <p>Then click <strong>Publish</strong></p>
+        <p>Note that you <strong>NEVER</strong> want to leave your permissions unrestricted like this, but we will fix this later in the workshop.</p>
+      </div>
+    </div>
+</div>
+
+<div class="guide-through clearfix">
+  <a class="previous" ui-sref="systemSetup2">System Setup: Checkout the Starter App Template</a>
+  <a class="next" ui-sref="gettingStarted2">Getting Started: Load Starter Database</a>
+</div>
