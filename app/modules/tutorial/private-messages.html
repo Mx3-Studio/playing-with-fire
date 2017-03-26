@@ -1,0 +1,45 @@
+<h1>Private Messages</h1>
+<h2>Success Criteria</h2>
+<ul>
+  <li>See list of friends</li>
+  <li>Search for new friends by email address</li>
+  <li>Chat privately with a friend</li>
+</ul>
+
+<div class="private-messages">
+  <div>
+    <h2>Instructions</h2>
+    <ol>
+      <li>Update the searchUsers method in FriendsController to search for a profile with an email address matching the submitted value - /profiles</li>
+      <li>Update the ChatController to get a private chat thread when a friend parameter is used - /users/{myUserId}/chats/{friendId}</li>
+      <li>Modify the createChat function in ChatController to write a new friend chat to both your private chat and your friend’s private chat - /users/{myUserId}/chats/{friendId}/{key} and /users/{friendId}/chats/{myUserId}/{key}</li>
+      <li>Update the FriendsController to read the list of friend chats - /users/{userId}/chats</li>
+      <li>Watch for changes to the list of friend chats and use the ProfileSvc to load the profile for each</li>
+      <li>Modify the database Rules in the Firebase console to reflect the following conditions:
+        <ol type="a">
+          <li>A user can write to their chat thread under another user’s object - /users/{friendId}/chats/{myUserId}</li>
+          <li>A user must be authenticated to read profiles - /profiles</li>
+          <li>A user can only write to their own profile - /profiles/{userId}</li>
+          <li>Add an index on “email” to profiles - /profiles</li>
+        </ol>
+      </li>
+    </ol>
+  </div>
+  <div>
+    <h2>Hints</h2>
+    <ul>
+      <li>Firebase query - <a href="https://firebase.google.com/docs/reference/js/firebase.database.Query" target="_blank">Firebase Database Query</a></li>
+      <li>Create a firebase Query from a Reference - <a href="https://firebase.google.com/docs/reference/js/firebase.database.Reference#orderByChild" target="_blank">Firebase Database Reference</a></li>
+      <li>Update multiple items at once - <a href="https://firebase.google.com/docs/database/web/read-and-write#updating_or_deleting_data" target="_blank">Updating or Deleting Data</a></li>
+      <li>Return search results and friends as a $firebaseArray</li>
+      <li>May need to $watch the friends list for changes - <a href="https://github.com/firebase/angularfire/blob/master/docs/reference.md#watchcb-context" target="_blank">Watchcb Context</a></li>
+    </ul>
+  </div>
+</div>
+<h2>QA</h2>
+<p>Now run the application and visit <a href="http://localhost:8080/#/friends">http://localhost:8080/#/friends</a> after logging in.</p>
+<p>You should now be able to search for “michael@dowden.us” and see a result. Click on this friend and you can chat with them. Now when you return to the friends page you should see your friend show up automatically (since you have already chatted with him).</p>
+<div class="guide-through clearfix">
+  <a class="previous" ui-sref="security">Security</a>
+  <a class="next" ui-sref="challengesImages">Challenges: Images</a>
+</div>

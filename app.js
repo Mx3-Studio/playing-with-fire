@@ -52,6 +52,18 @@
         url: '/security',
         templateUrl: 'app/modules/tutorial/security.html',
       })
+      .state('privateMessages', {
+        url: '/privateMessages',
+        templateUrl: 'app/modules/tutorial/private-messages.html',
+      })
+      .state('challengesImages', {
+        url: '/challengesImages',
+        templateUrl: 'app/modules/tutorial/challenges-images.html',
+      })
+      .state('challengesCordova', {
+        url: '/challengesCordova',
+        templateUrl: 'app/modules/tutorial/challenges-cordova.html',
+      })
       ;
   }
 

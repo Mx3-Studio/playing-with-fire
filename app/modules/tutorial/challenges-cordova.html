@@ -1,0 +1,55 @@
+<h1>Challenges: Deploy with Cordova</h1>
+<h2>Success Criteria</h2>
+<ul>
+  <li>Run in Android emulator using Cordova</li>
+</ul>
+
+<div class="challenges-cordova">
+  <div>
+    <h2>Instructions</h2>
+    <ol>
+      <li>Install cordova and create a new project:
+        <ol type="a">
+          <li>$ npm install -g cordova</li>
+          <li>$ cordova create fireside</li>
+        </ol>
+      </li>
+      <li>Publish the Fireside build to Cordova:
+        <ol type="a">
+          <li>$ rm -rf fireside/www</li>
+          <li>$ gulp build</li>
+          <li>$ mv public fireside/www</li>
+        </ol>
+      </li>
+      <li>Add the browser platform and run:
+        <ol type="a">
+          <li>$ cordova platform add browser</li>
+          <li>$ cordova run browser</li>
+        </ol>
+      </li>
+      <li>Install the Android SDK and the latest API version</li>
+      <li>Add the android platform and run:
+        <ol type="a">
+          <li>$ cordova platform add android</li>
+          <li>Install Firebase Android Auth plugin (TBD)</li>
+          <li>$ cordova run android</li>
+        </ol>
+      </li>
+  </div>
+  <div>
+    <h2>Hints</h2>
+    <ul>
+      <li>Apache Cordova - <a href="https://cordova.apache.org/" target="_blank">Apache Cordova</a></li>
+      <li>Installing Android SDK - <a href="http://www.androidcentral.com/installing-android-sdk-windows-mac-and-linux-tutorial" target="_blank">Installing Android sdk Windows Mac and Linux Tutorial</a></li>
+      <li>Auth plugin - <a href="https://www.npmjs.com/package/cordova-plugin-firebase-auth" target="_blank">Cordova Plugin Firebase Auth</a></li>
+    </ul>
+  </div>
+</div>
+<h2>QA</h2>
+<p>Test the app by running in the browser, in the Android emulator, and if possible on your own Android device!</p>
+<p>If you have an Android phone you can test it out by connecting via USB and running:</p>
+<p>$ cordova run android --device</p>
+<div class="guide-through clearfix">
+  <a class="previous" ui-sref="challengesImages">Challenges: Images</a>
+  <a class="next" ui-sref="tutorial">Tutorial</a>
+</div>

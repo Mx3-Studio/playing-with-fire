@@ -1,0 +1,44 @@
+<h1>Challenges: Add Images to Chats</h1>
+<h2>Success Criteria</h2>
+<ul>
+  <li>Upload images to Firebase Storage</li>
+  <li>Display images in chat stream</li>
+  <li>Prevent unauthorized submission of images </li>
+</ul>
+
+<div class="challenges-images">
+  <div>
+    <h2>Instructions</h2>
+    <ol>
+      <li>Modify the FirebaseRef service to return a Firebase Storage reference as “storage”</li>
+      <li>Implement the uploadImage method on the FirebaseStorage service to put a file using the “/images” folder as the root</li>
+      <li>Optionally implement the deleteImage method on the FirebaseStorage service (as a bonus you can implement a delete function on images within chats)</li>
+      <li>Uncomment Image Upload fields in the chat.html view</li>
+      <li>Modify the storage Rules in the Firebase console to reflect the following conditions:
+        <ol type="a">
+          <li>Any user can view images - /images</li>
+          <li>A user can only write to their own image folder - /images/{userId}/{epochTime}/{filename}</li>
+        </ol>
+      </li>
+    </ol>
+  </div>
+  <div>
+    <h2>Hints</h2>
+    <ul>
+      <li>Firebase Storage - <a href=" https://firebase.google.com/docs/storage/web/upload-files" target="_blank">Upload Files</a></li>
+      <li>Storage Security - <a href="https://firebase.google.com/docs/storage/security/" target="_blank">Security</a></li>
+      <li>Chats should now have the additional attributes:
+        <ul>
+          <li>photoURL - the image URL within Firebase storage</li>
+        </ul>
+      </li>
+    </ul>
+  </div>
+</div>
+<h2>QA</h2>
+<p>Run the application and visit <a href="http://localhost:8080/#/chats">http://localhost:8080/#/chats</a></p>
+<p>You should be able to upload images to the chat stream.</p>
+<div class="guide-through clearfix">
+  <a class="previous" ui-sref="privateMessages">Private Messages</a>
+  <a class="next" ui-sref="challengesCordova">Challenges: Cordova</a>
+</div>
