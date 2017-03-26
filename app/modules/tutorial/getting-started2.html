@@ -8,10 +8,36 @@
       <p>Click the ellipsis (three dots) and select Import JSON. Select the “starter-database.json” file from your Fireside project folder and click Import.</p>
     </div>
   </div>
+
+  <div>
+    <div><img src="app/images/screenshots/database.png" alt=""></div>
+    <div>
+      <p>Open the new Fireside project</p>
+      <p>Click Database then Rules</p>
+    </div>
+  </div>
+
+  <div>
+    <div><img src="app/images/screenshots/databse-rules.png" alt=""></div>
+    <div>
+      <p>For now change the rules to</p>
+<code><pre>
+{
+  “rules”: {
+    “.read”: true,
+    “.write”: true
+  }
+}
+</pre></code>
+      <p>Then click <strong>Publish</strong></p>
+      <p>Note that you <strong>NEVER</strong> want to leave your permissions unrestricted like this, but we will fix this later in the workshop.</p>
+    </div>
+  </div>
+
 </div>
 
 
 <div class="guide-through clearfix">
   <a class="previous" ui-sref="gettingStarted">Getting Started: Setup the Firebase Console Account</a>
-  <a class="next" ui-sref="gettingStarted3">Getting Started: Configure Firebase connectivity</a>
+  <a class="next" ui-sref="gettingStarted3">Getting Started: Configure App Initialization</a>
 </div>

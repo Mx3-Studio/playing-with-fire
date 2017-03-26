@@ -1,4 +1,4 @@
-<h1>Getting Started: Configure Firebase connectivity</h1>
+<h1>Getting Started: Configure App Initialization</h1>
 <div class="gettingStarted">
   <div>
     <div><img src="app/images/screenshots/overview.png" alt=""></div>
@@ -7,18 +7,18 @@
   <div>
     <div><img src="app/images/screenshots/addFirebaseToWebApp.png" alt=""></div>
     <div>
-      <p>Copy the configuration script,</p>
-      <p>then open up “env/dev/config.js” in your Fireside project and replace the placeholder values in this script with the ones you copied out of the Firebase Console.</p>
+      <p>Copy the configuration script, then open up FirebaseRef service in your Fireside project and add the initialization script you copied out of the Firebase Console.</p>
+      <p>You will also need to return the Database Reference from FirebaseRef as “db”</p>
       <p>Save the file, then run the project</p>
 <code><pre>
 $ gulp serve-dev
 </pre></code>
       <p><a href="http://localhost:8080/#/check" target="_blank">http://localhost:8080/#/check</a>
-      <p>If the script comes back with a confirmation page then you are successfully connected to Firebase. If not, then some debugging will be in order.</p>
+      <p>Page should load successfully with no errors in the Chrome Dev console and display the message <b>"You are connected to the database."</b></p>
     </div>
   </div>
 </div>
 <div class="guide-through clearfix">
   <a class="previous" ui-sref="gettingStarted2">Getting Started: Load Starter Database</a>
-  <a class="next" ui-sref="realTimeChat">Reat-Time Chat: Read Chats</a>
+  <a class="next" ui-sref="realTimeChat">Real-Time Chat: Read Chats</a>
 </div>
