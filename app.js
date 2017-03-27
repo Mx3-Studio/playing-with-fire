@@ -52,6 +52,10 @@
         url: '/security',
         templateUrl: 'app/modules/tutorial/security.html',
       })
+      .state('deployToFirebaseHosting', {
+        url: '/deployToFirebaseHosting',
+        templateUrl: 'app/modules/tutorial/deploy-to-firebase-hosting.html',
+      })
       .state('privateMessages', {
         url: '/privateMessages',
         templateUrl: 'app/modules/tutorial/private-messages.html',

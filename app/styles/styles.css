@@ -207,7 +207,11 @@ pre {
   .columns,
   .gettingStarted > div,
   .real-time-chats,
-  .security {
+  .security,
+  .private-messages,
+  .deploy-to-firebase-hosting,
+  .challenges-images,
+  .challenges-cordova {
     display: flex;
     justify-content: space-between;
     align-items: flex-start;
@@ -217,20 +221,32 @@ pre {
   .columns > *,
   .gettingStarted > div > *,
   .real-time-chats > *,
-  .security > * {
+  .security > *,
+  .private-messages > *,
+  .deploy-to-firebase-hosting > *,
+  .challenges-images > *,
+  .challenges-cordova > * {
     padding: 0 1rem;
     width: 50%;
   }
   .columns > p,
   .gettingStarted > div > p,
   .real-time-chats > p,
-  .security > p {
+  .security > p,
+  .private-messages > p,
+  .deploy-to-firebase-hosting > p,
+  .challenges-images > p,
+  .challenges-cordova > p {
     display: block;
   }
   .columns img,
   .gettingStarted > div img,
   .real-time-chats img,
-  .security img {
+  .security img,
+  .private-messages img,
+  .deploy-to-firebase-hosting img,
+  .challenges-images img,
+  .challenges-cordova img {
     padding: 0;
     margin: 0;
   }

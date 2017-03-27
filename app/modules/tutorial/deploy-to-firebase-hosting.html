@@ -1,0 +1,39 @@
+<h1>Deploy to Firebase Hosting</h1>
+<h2>Success Criteria</h2>
+<ul>
+  <li>Installed Firebase CLI tools</li>
+  <li>Connect to Fireside through public Firebase URL</li>
+</ul>
+
+<div class="deploy-to-firebase-hosting">
+  <div>
+    <h2>Instructions</h2>
+    <ol>
+      <li>Install the firebase CLI tools</li>
+      <li>Initialize the project to create your firebase.json file: $ firebase init</li>
+      <li>Login to Firebase using the CLI: $ firebase login</li>
+      <li>Copy your database Rules from the Firebase database console to your database.rules.json file</li>
+      <li>Run the project build using Firebase: $ gulp build && firebase serve</li>
+      <li>Test the project <a href="http://localhost:8080/" target="_blank">http://localhost:8080/</a></li>
+      <li>Deploy the project: $ firebase deploy</li>
+      <li>Open up the Hosting tab on your Firebase console to see the deployment history</li>
+      <li>Click the Domain shortcut to launch the app on your public website</li>
+      <li>aste the URL to your app in the Slack channel</li>
+    </ol>
+  </div>
+  <div>
+    <h2>Hints</h2>
+    <ul>
+      <li>Learn more about the Firebase CLI - <a href="https://firebase.google.com/docs/cli/" target="_blank">https://firebase.google.com/docs/cli/</a></li>
+      <li>Install: $ npm install -g firebase-tools</li>
+      <li>Deploying to Firebase using the CLI will replace the database rules loaded in firebase with the ones you have saved in your local database.rules.json file, so be sure this file is up-to-date.</li>
+    </ul>
+  </div>
+</div>
+<h2>QA</h2>
+<p>Run the app on Firebase using your project prefix in the form of https://<project-prefix>.firebaseapp.com/</p>
+<p>For example, our project is available at <a href="https://fireside-73c10.firebaseapp.com/" target="_blank">https://fireside-73c10.firebaseapp.com/</a></p>
+<div class="guide-through clearfix">
+  <a class="previous" ui-sref="privateMessages">Private Messages</a>
+  <a class="next" ui-sref="challengesImages">Challenges: Images</a>
+</div>
