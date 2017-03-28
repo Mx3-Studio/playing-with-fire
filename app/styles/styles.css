@@ -41,6 +41,11 @@ h6 {
 h1 {
   padding-bottom: 1rem;
 }
+p,
+ul,
+li {
+  line-height: 1.5rem;
+}
 a,
 a:link,
 a:visited {
@@ -161,6 +166,10 @@ footer img {
 footer div:first-child {
   float: left;
   font-size: .75rem;
+}
+footer div:first-child img {
+  vertical-align: text-bottom;
+  margin-right: .25rem;
 }
 footer div:last-child {
   float: right;
