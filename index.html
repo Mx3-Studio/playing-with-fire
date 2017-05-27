@@ -14,6 +14,7 @@
     <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
 
     <link href="https://fonts.googleapis.com/css?family=Raleway:400,700" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Inconsolata" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="app/styles/styles.css">
 
     <link rel="icon" type="image/png" href="app/images/icons/icon_favicon.png" />
@@ -37,22 +38,31 @@
     <meta property="og:description" content="Learn how easy it can be to use Firebase to take your app idea from concept to production. In this workshop you will build your own Twitter-like social messaging application, start to finish." />
 
   </head>
-  <body class="clearfix">
+  <body class="clearfix" ng-controller="MainController as vm">
+    <div ng-include="'/app/modules/core/components/header.html'"></div>
+    <div class="container">
 
-    <div ng-include src="'app/modules/core/components/header.html'"></div>
+      <div class="side-nav" ng-include="'/app/modules/core/components/sideNav.html'"></div>
 
-    <main ui-view autoscroll="true"></main>
+      <main class="clearfix" ui-view autoscroll="true"></main>
+    </div>
 
-    <footer-directive></footer-directive>
+    <div ng-include="'/app/modules/core/components/footer.html'"></div>
 
     <!-- Angular JS -->
-    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.6/angular.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.0/angular.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-router/0.4.2/angular-ui-router.min.js"></script>
 
     <!-- App JS -->
     <script src="app.js"></script>
     <script src="app/modules/core/core.module.js"></script>
-    <script src="app/modules/core/components/footer.js"></script>
+    <script src="app/modules/introduction/introduction.module.js"></script>
+    <script src="app/modules/system-setup/system-setup.module.js"></script>
+    <script src="app/modules/getting-started/getting-started.module.js"></script>
+    <script src="app/modules/consume-data/consume-data.module.js"></script>
+    <script src="app/modules/writting-data/writting-data.module.js"></script>
+    <script src="app/modules/tutorial/tutorial.module.js"></script>
+
 
     <!-- live relead -->
     <script>

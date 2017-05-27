@@ -1,0 +1,43 @@
+<div class="dark">
+  <div class="section">{{vm.section}}</div>
+  <h1>{{vm.title}}</h1>
+    <div class="gettingStarted">
+      <div>
+        <div>
+          <h2>Javascript</h2>
+          <pre><code>
+    // reference to database root: /
+    var db = firebase.database().ref();
+
+    // reference to chats
+    var chatsRef = db.child('/chats');
+
+    // read
+    chatsRef.child('-Kf9kfiG0rwnlB1gtquA')
+    .once('value').then(function(snapshot) {
+      var message = snapshot.val().content;
+    });
+
+    // read
+    var data = $firebaseArray(chatsRef);
+          </code></pre>
+        </div>
+        <div>
+          <h2>Firebase Object</h2>
+          <pre><code>
+    Fireside-73c10 {
+      "chats" : {
+        "-Kf9kfiG0rwnlB1gtquA" : {
+          "content" : "Hey",
+          "displayName" : "Martine Dowden",
+        }
+      }
+    }
+          </code></pre>
+        </div>
+      </div>
+
+  </div>
+
+  <div ng-include src="'/app/modules/core/components/buttons.html'"></div>
+</div>

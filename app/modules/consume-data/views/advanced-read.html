@@ -1,0 +1,31 @@
+
+<div class="section">{{vm.section}}</div>
+<h1>{{vm.title}}</h1>
+  <div class="gettingStarted">
+    <div>
+      <div>
+        <h2>$loaded()</h2>
+        <ul>
+          <li>Returns a promise which is resolved when the initial object data has been downloaded from the database. The promise resolves to the $firebaseObject itself.</li>
+          <li>As a shortcut, the resolve() / reject() methods can optionally be passed directly into $loaded():</li>
+        </ul>
+      </div>
+      <div>
+        <pre><code>
+  var db = firebase.database().ref();
+  // firebase API
+  db.on('value').then(function(data) {
+    console.log(data);
+  });
+  // AngularFire $loaded
+  var obj = $firebaseObject(db);
+  obj.$loaded().then(function(data) {
+    console.log(data === obj);
+  });
+        </code></pre>
+      </div>
+    </div>
+
+</div>
+
+<div ng-include src="'/app/modules/core/components/buttons.html'"></div>

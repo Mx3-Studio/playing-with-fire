@@ -1,0 +1,58 @@
+<nav>
+    <ul>
+        <li>
+            <button ng-click="vm.isExpanded('introduction')" ng-class="{'active': vm.introduction}">
+              Introduction
+              <i class="fa" ng-class="{'fa-angle-up': vm.introduction, 'fa-angle-down': !vm.introduction}"></i>
+            </button>
+        </li>
+        <ul ng-if="vm.introduction">
+            <li><a ui-sref="resources" ui-sref-active="active">Resources</a></li>
+            <li><a ui-sref="firebase" ui-sref-active="active">What is Firebase?</a></li>
+            <li><a ui-sref="goals" ui-sref-active="active">Workshop Goals</a></li>
+            <li><a ui-sref="whoWeAre" ui-sref-active="active">Who We Are</a></li>
+        </ul>
+        <li>
+            <button ng-click="vm.isExpanded('systemSetup')" ng-class="{'active': vm.systemSetup}">
+              System Setup
+              <i class="fa" ng-class="{'fa-angle-up': vm.systemSetup, 'fa-angle-down': !vm.systemSetup}"></i>
+            </button>
+        </li>
+        <ul ng-if="vm.systemSetup">
+            <li><a ui-sref="systemSetup" ui-sref-active="active">Install Prerequisites</a></li>
+            <li><a ui-sref="systemSetup2" ui-sref-active="active">Install &amp; Test Starter App</a></li>
+        </ul>
+        <li>
+          <button ng-click="vm.isExpanded('gettingStarted')" ng-class="{'active': vm.gettingStarted}">
+            Getting Started
+            <i class="fa" ng-class="{'fa-angle-up': vm.gettingStarted, 'fa-angle-down': !vm.gettingStarted}"></i>
+          </button>
+        </li>
+        <ul ng-if="vm.gettingStarted">
+          <li><a ui-sref="gettingStarted" ui-sref-active="active">Setup Firebase Console Account</a></li>
+          <li><a ui-sref="gettingStarted2" ui-sref-active="active">Load Started Database</a></li>
+          <li><a ui-sref="firebaseAPI" ui-sref-active="active">Firebase API</a></li>
+          <li><a ui-sref="gettingStarted3" ui-sref-active="active">Configure App Initialization</a></li>
+        </ul>
+        <li>
+          <button ng-click="vm.isExpanded('consumeData')" ng-class="{'active': vm.consumeData}">
+            Consuming Data
+            <i class="fa" ng-class="{'fa-angle-up': vm.consumeData, 'fa-angle-down': !vm.consumeData}"></i>
+          </button>
+        </li>
+        <ul ng-if="vm.consumeData">
+          <li><a ui-sref="readingData" ui-sref-active="active">Reading Data</a></li>
+          <li><a ui-sref="advancedRead" ui-sref-active="active">Advanced Read</a></li>
+          <li><a ui-sref="displayMessages" ui-sref-active="active">Display Messages</a></li>
+        </ul>
+        <li>
+          <button ng-click="vm.isExpanded('writtingData')" ng-class="{'active': vm.writtingData}">
+            Writting Data
+            <i class="fa" ng-class="{'fa-angle-up': vm.writtingData, 'fa-angle-down': !vm.writtingData}"></i>
+          </button>
+        </li>
+        <ul ng-if="vm.writtingData">
+          <li><a ui-sref="writtingData" ui-sref-active="active">Push</a></li>
+        </ul>
+    </ul>
+</nav>

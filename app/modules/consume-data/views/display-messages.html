@@ -1,0 +1,45 @@
+
+  <div class="section">{{vm.section}}</div>
+  <h1><img src="/app/images/doStuffIcon.svg" alt="action">{{vm.title}}</h1>
+  <div class="gettingStarted">
+    <div>
+      <div>
+        <h2>Instructions</h2>
+        <p>Update the ChatController to get the chat thread from the database - /chats</p>
+        <h2>Hints</h2>
+        <p>Use the firebase Reference to select objects by path using child(): <a href="https://firebase.google.com/docs/reference/js/firebase.database.Reference" target="_blank">firebase.database.Reference</a></p>
+        <p>Use the AngularFire $firebaseArray for chats: <a href="https://www.firebase.com/docs/web/libraries/angular/api.html#angularfire-firebasearray" target="_blank">$firebasearray</a></p>
+        <h2>QA</h2>
+        <p>Now run the application and visit <a href="http://localhost:8080/#/chats" target="_blank">http://localhost:8080/#/chats</a></p>
+        <p>You should see all of the demo chats show up.</p>
+      </div>
+      <div>
+        <h2>Javascript</h2>
+<pre><code>// reference to database root: /
+var db = firebase.database().ref();
+
+// reference to chats
+var chatsRef = db.child('/chats');
+
+// read
+chatsRef.child('-Kf9kfiG0rwnlB1gtquA')
+.once('value').then(function(snapshot) {
+  var message = snapshot.val().content;
+});
+
+// read
+var data = $firebaseArray(chatsRef);</code></pre>
+        <h2>Firebase Object</h2>
+<pre><code>Fireside-73c10 {
+  "chats" : {
+    "-Kf9kfiG0rwnlB1gtquA" : {
+      "content" : "Hey",
+      "displayName" : "Martine Dowden",
+    }
+  }
+}</code></pre>
+    </div>
+  </div>
+</div>
+
+<div ng-include src="'/app/modules/core/components/buttons.html'"></div>

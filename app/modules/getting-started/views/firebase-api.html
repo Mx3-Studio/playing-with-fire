@@ -1,0 +1,50 @@
+<div class="section">{{vm.section}}</div>
+<h1>{{vm.title}}</h1>
+
+<div class="gettingStarted">
+  <div>
+    <div>
+      <ul>
+        <li>Initialization script</li>
+        <li>
+          May use path notation to locate and object
+          <pre><code>  /chats/-Kf9kfiG0rwnlB1gtquA</code></pre>
+        </li>
+        <li>Firebase
+          <ul>
+            <li>Database</li>
+            <li>Reference</li>
+          </ul>
+        </li>
+        <li>AngularFire</li>
+      </ul>
+    </div>
+    <div>
+      <div>
+        <pre><code>
+  Fireside-73c10 {
+    "chats" : {
+      "-Kf9kfiG0rwnlB1gtquA" : {
+        "content" : "Hey",
+        "displayName" : "Martine Dowden",
+      }
+    }
+  }
+
+  // reference to database root: /
+  var db = firebase.database().ref();
+
+  // reference database objects
+  var chatsRef = db.child('chats');
+  var messageRef = chatsRef.child('-Kf9kfiG0rwnlB1gtquA');
+
+  // reference values
+  Var messageContentRef = messageRef.child('content');
+        </code></pre>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<div ng-include src="'/app/modules/core/components/buttons.html'"></div>
