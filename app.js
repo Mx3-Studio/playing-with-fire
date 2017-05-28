@@ -85,6 +85,10 @@
         url: '/',
         templateUrl: 'app/modules/core/home/home.html'
       })
+      .state('root', {
+        url: '',
+        templateUrl: 'app/modules/core/home/home.html'
+      })
       .state('tutorial', {
         url: '/tutorial',
         controller: 'IntroductionController as vm',
