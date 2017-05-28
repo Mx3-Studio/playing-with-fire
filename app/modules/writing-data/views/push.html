@@ -12,11 +12,14 @@
   content: 'Hello, World!',
   timestamp: Date.now()
 }
+
 var db = firebase.database().ref();
 var itemRef = db
   .child('/chats')
   .push(myData);
+
 var itemId = itemRef.key;
+
 itemRef.then(function(snapshot) {
   console.log(snapshot);
 });</code></pre>

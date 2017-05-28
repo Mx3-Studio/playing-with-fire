@@ -1,0 +1,28 @@
+<div class="section">{{vm.section}}</div>
+<h1>{{vm.title}}</h1>
+<div class="gettingStarted">
+  <div>
+    <div>
+      <h2>Introduction</h2>
+      <p>Registers an event listener which will be notified any time there is a change to the data. Returns an unregister function that, when invoked, will stop notifying the callback of changes.</p>
+      <p>Unregister using unwatch();</p>
+    </div>
+    <div>
+      <pre><code>// Load Friends (list of IDs)
+var friends = $firebaseArray(
+  firebase.database()
+  .ref()
+  .child('users')
+  .child(currentUser.uid)
+  .child('chats')
+);
+
+// Load list of Profiles
+friends.$watch(function (event) {
+    // Get Profile for each Friend
+});
+</code></pre>
+    </div>
+  </div>
+</div>
+<div ng-include src="'/app/modules/core/components/buttons.html'"></div>

@@ -1,0 +1,33 @@
+<div class="section">{{vm.section}}</div>
+<h1><img src="/app/images/doStuffIcon.svg" alt="action">{{vm.title}}</h1>
+<h2>Success Criteria</h2>
+<p>Prevent unauthorized access to application views</p>
+<div class="gettingStarted">
+  <div>
+    <div>
+      <h2>Instructions</h2>
+      <p>Update the Routes in app.routes.js to correctly resolve the currentUser which should be optional on / and /hashtag/:hash but required on /friends and /friends/:friend</p>
+      <h2>Hints</h2>
+      <li>AngularFire provided methods for Angular Router resolution: <a href="https://github.com/firebase/angularfire/blob/master/docs/reference.md#waitforsignin" target="_blank">API Reference | AngularFire: $waitForSignIn()</a></li>
+      <h2>QA</h2>
+      <p>You should not be able to access the friends url when not logged in.</p>
+    </div>
+    <div>
+      <pre><code>$routeProvider
+.when('/profile', {
+  templateUrl: 'view/profile.html',
+  controller: 'ProfileCtrl as vm',
+  resolve: {
+    user: ['$firebaseAuth', getUser]
+  }
+});
+
+function getUser($firebaseAuth) {
+  return $firebaseAuth
+    .$waitForSignIn();
+}</code></pre>
+    </div>
+  </div>
+</div>
+</div>
+<div ng-include src="'/app/modules/core/components/buttons.html'"></div>

@@ -1,0 +1,35 @@
+<div class="section">{{vm.section}}</div>
+<h1>{{vm.title}}</h1>
+
+<div class="firebase-storage">
+  <div>
+    <p>Metadata includes
+      <ul>
+        <li>Name</li>
+        <li>Size</li>
+        <li>content Type (MIME Type)</li>
+        <li>fullPath</li>
+        <li>downloadURLs</li>
+      </ul>
+    </p>
+  </div>
+  <div>
+    <div>
+      <pre><code>// Create a reference to the file whose
+// metadata we want to retrieve
+var ref = firebase.storage().ref()
+  .child('images/myMeme.png');
+
+// Get metadata properties
+ref.getMetadata()
+.then(function(metadata) {
+  // Metadata now contains the metadata
+  // for 'images/myMeme.png'
+}).catch(function(error) {
+  // Uh-oh, an error occurred!
+});</code></pre>
+    </div>
+  </div>
+</div>
+
+<div ng-include src="'/app/modules/core/components/buttons.html'"></div>

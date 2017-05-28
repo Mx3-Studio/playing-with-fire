@@ -1,0 +1,67 @@
+<div class="section">{{vm.section}}</div>
+<h1><img src="/app/images/doStuffIcon.svg" alt="action">{{vm.title}}</h1>
+<div class="gettingStarted">
+  <div>
+    <div>
+      <h2>Instructions</h2>
+      <p>Implement the getProfileByID method in the ProfileService to return the user profile from /users/{userId}/profile</p>
+      <p>Update the createChat method in the ChatController to add the user attributes to the chat object</p>
+      <p>Update the Routes in app.routes.js to correctly resolve the currentUser which should be optional on / and /hashtag/:hash but required on /friends and /friends/:friend</p>
+    </div>
+    <div>
+      <h2>Hints</h2>
+      <ul>
+        <li>Use $firebaseObject to load the User Profile: <a href="https://github.com/firebase/angularfire/blob/master/docs/reference.md#firebaseobject" target="_blank"></a>API Reference | AngularFire: $firebaseObject</li>
+        <pre><code>var db = firebase.database().ref();
+  // firebase API
+  db.on('value').then(function(data) {
+    console.log(data);
+  });
+  // AngularFire $loaded
+  var obj = $firebaseObject(db);
+  obj.$loaded().then(function(data) {
+    console.log(data === obj);
+  });</code></pre>
+        <li>AngularFire provided methods for Angular Router resolution: <a href="https://github.com/firebase/angularfire/blob/master/docs/reference.md#waitforsignin" target="_blank">API Reference | AngularFire: $waitForSignIn()</a></li>
+        <li>Chats should now have the additional attributes:
+          <ul>
+            <li>displayName - the name of the user who created the chat, from their profile</li>
+            <li>uid - the ID of the User who created the chat</li>
+            <li>photoURL - the profile image of the person who created the chat</li>
+          </ul>
+        </li>
+      </ul>
+    </div>
+  </div>
+
+  <div>
+    <div>
+      <p>Modify the database Rules in the Firebase console to reflect the following conditions:</p>
+      <ul>
+        <li>Anyone can read from check - /check</li>
+        <li>No one can write to check - /check</li>
+        <li>Anyone can read chats - /chats</li>
+        <li>Must be authenticated to write chats - /chats</li>
+        <li>A user can only write their own user object - /users/{userId}</li>
+        <li>Anyone can read the user’s profile - /users/{userId}/profile</li>
+        <li>Anyone can read or write profiles - /profile</li>
+      </ul>
+    </div>
+    <div>
+      <p>Firebase database rules: <a href="https://firebase.google.com/docs/database/security/" target="_blank">Understand Firebase Realtime Database Rules</a></p>
+  <pre><code>{
+  "rules": {
+  ".read": true,
+  ".write": true
+  }
+  }</code></pre>
+    </div>
+
+  </div>
+</div>
+
+<h2>QA</h2>
+<p>You should also be able to view your user profile information when you create new chat messages.</p>
+<p>You should not be able to create new chats when not logged in.</p>
+<p>You should not be able to access the friends url when not logged in.</p>
+<div ng-include src="'/app/modules/core/components/buttons.html'"></div>

@@ -1,0 +1,29 @@
+<div class="section">{{vm.section}}</div>
+<h1><img src="/app/images/doStuffIcon.svg" alt="action">{{vm.title}}</h1>
+<h2>Success Criteria</h2>
+<p>See list of friends</p>
+<p>Search for new friends by email address</p>
+<div class="gettingStarted">
+  <div>
+    <div>
+      <h2>Introduction</h2>
+      <p>Update the searchUsers method in FriendsController to search for a profile with an email address matching the submitted value - /profiles</p>
+      <p>Update the ChatController to get a private chat thread when a friend parameter is used - /users/{myUserId}/chats/{friendId}</p>
+      <h2>Hints</h2>
+      <p>Firebase query - <a href="https://firebase.google.com/docs/reference/js/firebase.database.Query" target="_blank">Firebase Database Query</a></p>
+      <p>Create a firebase Query from a Reference - <a href="https://firebase.google.com/docs/reference/js/firebase.database.Reference#orderByChild" target="_blank">Firebase Database Reference</a></p>
+      <h2>QA</h2>
+      <p>Now run the application and visit <a href="http://localhost:8080/#/friends" target="_blank">http://localhost:8080/#/friends</a> after logging in.</p>
+      <p>You should now be able to search for "michael@dowden.us" and see a result. Click on this friend and you can chat with them. Now when you return to the friends page you should see your friend show up automatically (since you have already chatted with him).</p>
+    </div>
+    <div>
+      <pre><code>var db = firebase.database().ref();
+query = 'user@email.com';
+
+db.child('profiles')
+.orderByChild('email')
+.equalTo(query));</code></pre>
+    </div>
+  </div>
+</div>
+<div ng-include src="'/app/modules/core/components/buttons.html'"></div>

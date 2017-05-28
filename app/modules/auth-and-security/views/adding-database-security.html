@@ -1,0 +1,44 @@
+<div class="section">{{vm.section}}</div>
+<h1><img src="/app/images/doStuffIcon.svg" alt="action">{{vm.title}}</h1>
+<h2>Success Criteria</h2>
+<p>Prevent unauthorized access to Firebase objects</p>
+<div class="gettingStarted">
+  <div>
+    <div>
+      <h2>Instructions</h2>
+      <p>Modify the database Rules in the Firebase console to reflect the following conditions:</p>
+      <ul>
+        <li>Anyone can read from check - /check</li>
+        <li>No one can write to check - /check</li>
+        <li>Anyone can read chats - /chats</li>
+        <li>Must be authenticated to write chats - /chats</li>
+        <li>A user can only write their own user object - /users/{userId}</li>
+        <li>Anyone can read the user’s profile - /users/{userId}/profile</li>
+        <li>Anyone can read or write profiles - /profile</li>
+      </ul>
+      <h2>Hints</h2>
+      <p>Firebase database rules: <a href="https://firebase.google.com/docs/database/security/" target="_blank">Understand Firebase Realtime Database Rules</a></p>
+    </div>
+    <div>
+    <pre><code>{
+  "rules": {
+    "check": {
+      ".read": true,
+      ".write": false
+    },
+    "users": {
+      "$user_id": {
+        ".read": "$user_id === auth.uid",
+        ".write": false,
+        "profile": { ".read": true }
+      }
+    }
+  }
+}</code></pre>
+    </div>
+  </div>
+</div>
+
+<h2>QA</h2>
+<p>You should not be able to create new chats when not logged in.</p>
+<div ng-include src="'/app/modules/core/components/buttons.html'"></div>

@@ -1,0 +1,29 @@
+<div class="section">{{vm.section}}</div>
+<h1>{{vm.title}}</h1>
+
+<div class="gettingStarted">
+  <div>
+    <div>
+      <p>AngularFire $waitForSignIn returns a promise fulfilled with the current authentication state.</p>
+      <p>AngularFire $requireSignIn returns a promise fulfilled with the current auth (if currently authenticated), or rejects the promise otherwise.</p>
+    </div>
+    <div>
+      <pre><code>$routeProvider
+.when('/profile', {
+  templateUrl: 'view/profile.html',
+  controller: 'ProfileCtrl as vm',
+  resolve: {
+    user: ['$firebaseAuth', getUser]
+  }
+});
+
+function getUser($firebaseAuth) {
+  return $firebaseAuth
+    .$waitForSignIn();
+}</code></pre>
+  </div>
+</div>
+</div>
+
+
+<div ng-include src="'/app/modules/core/components/buttons.html'"></div>

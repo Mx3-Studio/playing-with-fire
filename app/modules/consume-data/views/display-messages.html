@@ -1,6 +1,8 @@
 
   <div class="section">{{vm.section}}</div>
   <h1><img src="/app/images/doStuffIcon.svg" alt="action">{{vm.title}}</h1>
+  <h2>Success Criteria</h2>
+  <p>Display chat messages Firebase</p>
   <div class="gettingStarted">
     <div>
       <div>
@@ -12,6 +14,12 @@
         <h2>QA</h2>
         <p>Now run the application and visit <a href="http://localhost:8080/#/chats" target="_blank">http://localhost:8080/#/chats</a></p>
         <p>You should see all of the demo chats show up.</p>
+        <p>Chats contain the following attributes:
+          <ul>
+            <li>content: the chat message</li>
+            <li>timestamp: the UTC string representing the moment the chat was created</li>
+          </ul>
+        </p>
       </div>
       <div>
         <h2>Javascript</h2>

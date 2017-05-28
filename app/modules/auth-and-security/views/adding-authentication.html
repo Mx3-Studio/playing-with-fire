@@ -1,0 +1,44 @@
+<div class="section">{{vm.section}}</div>
+<h1><img src="/app/images/doStuffIcon.svg" alt="action">{{vm.title}}</h1>
+<h2>Success Criteria</h2>
+<p>Login using Google OAuth</p>
+<div class="gettingStarted">
+  <div>
+    <div>
+      <h2>Instructions</h2>
+      <p>Enable the Google Sign-in Provider from Firebase console</p>
+      <p>Implement methods in the FirebaseAuth service:
+        <ul>
+          <li>authenticate()</li>
+          <li>logout()</li>
+        </ul>
+      </p>
+      <h2>Hints</h2>
+      <p>You will use Firebase Authentication to perform Google OAuth: <a href="https://firebase.google.com/docs/auth/" target="_blank">Firebase Authentication</a></p>
+      <p>Use AngularFire $authWithOAuthPopup to login using Google: <a href="https://www.firebase.com/docs/web/libraries/angular/api.html#angularfire-users-and-authentication-authwithoauthpopupprovider-options" target="_blank">Angularfire Users and Authentication: $authWithOAuthPopup(provider[, options])</a></p>
+      <h2>QA</h2>
+      <p>Now run the application and visit <a href="http://localhost:8080/#/login">http://localhost:8080/#/login</a></p>
+      <p>You should now be able to click the Google Login button to authenticate using your Google account (the same one you used to sign up for Firebase would be fine).</p>
+    </div>
+    <div>
+    <pre><code>// Firebase API OAuth Login
+firebase.auth()
+.signInWithPopup('google')
+.then(function(userCredential) {
+  console.log(userCredential);
+});
+
+// AngularFire OAuth Login
+$firebaseAuth()
+.$signInWithPopup('google')
+.then(function(user) {
+  console.log(user);
+});
+
+// AngularFire Logout
+$firebaseAuth().$signOut();
+</code></pre>
+    </div>
+  </div>
+</div>
+<div ng-include src="'/app/modules/core/components/buttons.html'"></div>

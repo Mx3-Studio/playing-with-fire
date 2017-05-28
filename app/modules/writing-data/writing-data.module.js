@@ -1,8 +1,8 @@
-angular.module('app.writtingData', [])
+angular.module('app.writingData', [])
 
-  .controller('writtingDataController', writtingData);
+  .controller('writingDataController', writingData);
 
-  function writtingData ($state) {
+  function writingData ($state) {
     var vm = this;
 
     vm.title = $state.$current.title;

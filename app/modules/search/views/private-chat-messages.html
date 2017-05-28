@@ -1,0 +1,60 @@
+<div class="section">{{vm.section}}</div>
+<h1><img src="/app/images/doStuffIcon.svg" alt="action">{{vm.title}}</h1>
+<h2>Success Criteria</h2>
+<p>Chat privately with a friend</p>
+<div class="gettingStarted">
+  <div>
+    <div>
+      <h2>Introduction</h2>
+      <p>Modify the createChat function in ChatController to write a new friend chat to both your private chat and your friend’s private chat - /users/{myUserId}/chats/{friendId}/{key} and /users/{friendId}/chats/{myUserId}/{key}</p>
+      <p>Update the FriendsController to read the list of friend chats - /users/{userId}/chats</p>
+      <p>Watch for changes to the list of friend chats and use the ProfileSvc to load the profile for each</p>
+      <p>Modify the database Rules in the Firebase console to reflect the following conditions:</p>
+      <ul>
+        <li>A user can write to their chat thread under another user’s object - /users/{friendId}/chats/{myUserId}</li>
+        <li>A user must be authenticated to read profiles - /profiles</li>
+        <li>A user can only write to their own profile - /profiles/{userId}</li>
+        <li>Add an index on "email" to profiles - /profiles</li>
+      </ul>
+      <h2>Hints</h2>
+      <p>Update multiple items at once - <a href="https://firebase.google.com/docs/database/web/read-and-write#updating_or_deleting_data" target="_blank">Updating or Deleting Data</a></p>
+      <p>Return search results and friends as a $firebaseArray</p>
+      <p>May need to $watch the friends list for changes - <a href="https://github.com/firebase/angularfire/blob/master/docs/reference.md#watchcb-context" target="_blank">$Watch</a><p>
+      <h2>QA</h2>
+      <p>You should now be able to chat with your friend.</p>
+    </div>
+    <div>
+      <pre><code>function newMultiUpdate(content, uid) {
+// Some content and a UID.
+var data = {
+  content: content,
+  uid: uid
+};
+
+// Get a key for the new Muti Update.
+var newUpdateKey = firebase.database().ref().child('chats').push().key;
+
+// Write the data simultaneously to more than one location
+var locations = {};
+locations['/chats/' + newUpdateKey] = data;
+locations['/users/' + uid + '/' + newUpdateKey] = data;
+
+return firebase.database().ref().update(locations);
+}</code></pre>
+      <pre><code>// Load Friends (list of IDs)
+var friends = $firebaseArray(
+  firebase.database()
+  .ref()
+  .child('users')
+  .child(currentUser.uid)
+  .child('chats')
+);
+
+// Load list of Profiles
+friends.$watch(function (event) {
+    // Get Profile for each Friend
+});</code></pre>
+    </div>
+  </div>
+</div>
+<div ng-include src="'/app/modules/core/components/buttons.html'"></div>

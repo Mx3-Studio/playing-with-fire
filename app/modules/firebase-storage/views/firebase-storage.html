@@ -1,0 +1,22 @@
+<div class="section">{{vm.section}}</div>
+<h1>{{vm.title}}</h1>
+
+<div class="firebase-storage">
+  <div>
+    <p>Upload and share user generated content, such as images and video</p>
+    <p>data is stored in a Google Cloud Storage bucket</p>
+    <p>Separate component of firebase API
+      <ul>
+        <li>firebase.storage()</li>
+        <li>Rules are managed separately</li>
+      </ul>
+    </p>
+  </div>
+  <div>
+    <div>
+      <pre><code>var storage = firebase.storage().ref();</code></pre>
+    </div>
+  </div>
+</div>
+
+<div ng-include src="'/app/modules/core/components/buttons.html'"></div>

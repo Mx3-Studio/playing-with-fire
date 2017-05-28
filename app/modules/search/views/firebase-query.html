@@ -1,0 +1,20 @@
+<div class="section">{{vm.section}}</div>
+<h1>{{vm.title}}</h1>
+<div class="gettingStarted">
+  <div>
+    <div>
+      <p>Returns data from a database location that is ordered and filtered by one of the Firebase methods</p>
+      <p>.orderByChild(): specifies the child key to order the results by</p>
+      <p>.equalTo(): Return items equal to the specified key or value, depending on the order-by method chosen</p>
+    </div>
+    <div>
+      <pre><code>var db = firebase.database().ref();
+query = 'user@email.com';
+
+db.child('profiles')
+.orderByChild('email')
+.equalTo(query));</code></pre>
+    </div>
+  </div>
+</div>
+<div ng-include src="'/app/modules/core/components/buttons.html'"></div>

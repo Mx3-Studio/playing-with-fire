@@ -1,9 +1,8 @@
-<h1>Deploy to Firebase Hosting</h1>
+<div class="section">{{vm.section}}</div>
+<h1><img src="/app/images/doStuffIcon.svg" alt="action">{{vm.title}}</h1>
 <h2>Success Criteria</h2>
-<ul>
-  <li>Installed Firebase CLI tools</li>
-  <li>Connect to Fireside through public Firebase URL</li>
-</ul>
+<p>Installed Firebase CLI tools</p>
+<p>Connect to Fireside through public Firebase URL</p>
 
 <div class="deploy-to-firebase-hosting">
   <div>
@@ -18,7 +17,7 @@
       <li>Deploy the project: $ firebase deploy</li>
       <li>Open up the Hosting tab on your Firebase console to see the deployment history</li>
       <li>Click the Domain shortcut to launch the app on your public website</li>
-      <li>aste the URL to your app in the Slack channel</li>
+      <li>Paste the URL to your app in the Slack channel</li>
     </ol>
   </div>
   <div>
@@ -33,7 +32,4 @@
 <h2>QA</h2>
 <p>Run the app on Firebase using your project prefix in the form of https://{project-prefix}.firebaseapp.com/</p>
 <p>For example, our project is available at <a href="https://fireside-73c10.firebaseapp.com/" target="_blank">https://fireside-73c10.firebaseapp.com/</a></p>
-<div class="guide-through clearfix">
-  <a class="previous" ui-sref="privateMessages">Private Messages</a>
-  <a class="next" ui-sref="challengesImages">Challenges: Images</a>
-</div>
+<div ng-include src="'/app/modules/core/components/buttons.html'"></div>
