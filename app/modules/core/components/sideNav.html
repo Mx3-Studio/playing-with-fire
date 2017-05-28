@@ -6,7 +6,7 @@
               <i class="fa" ng-class="{'fa-angle-up': vm.introduction, 'fa-angle-down': !vm.introduction}"></i>
             </button>
         </li>
-        <ul ng-if="vm.introduction">
+        <ul id="introduction">
             <li><a ui-sref="resources" ui-sref-active="active">Resources</a></li>
             <li><a ui-sref="firebase" ui-sref-active="active">What is Firebase?</a></li>
             <li><a ui-sref="goals" ui-sref-active="active">Workshop Goals</a></li>
@@ -18,7 +18,7 @@
               <i class="fa" ng-class="{'fa-angle-up': vm.systemSetup, 'fa-angle-down': !vm.systemSetup}"></i>
             </button>
         </li>
-        <ul ng-if="vm.systemSetup">
+        <ul id="systemSetup">
             <li><a ui-sref="systemSetup" ui-sref-active="active">Install Prerequisites</a></li>
             <li><a ui-sref="systemSetup2" ui-sref-active="active">Install &amp; Test Starter App</a></li>
         </ul>
@@ -28,7 +28,7 @@
             <i class="fa" ng-class="{'fa-angle-up': vm.gettingStarted, 'fa-angle-down': !vm.gettingStarted}"></i>
           </button>
         </li>
-        <ul ng-if="vm.gettingStarted">
+        <ul id="gettingStarted">
           <li><a ui-sref="gettingStarted" ui-sref-active="active">Setup Firebase Console Account</a></li>
           <li><a ui-sref="gettingStarted2" ui-sref-active="active">Load Started Database</a></li>
           <li><a ui-sref="firebaseAPI" ui-sref-active="active">Firebase API</a></li>
@@ -40,7 +40,7 @@
             <i class="fa" ng-class="{'fa-angle-up': vm.consumeData, 'fa-angle-down': !vm.consumeData}"></i>
           </button>
         </li>
-        <ul ng-if="vm.consumeData">
+        <ul id="consumeData">
           <li><a ui-sref="readingData" ui-sref-active="active">Reading Data</a></li>
           <li><a ui-sref="advancedRead" ui-sref-active="active">Advanced Read</a></li>
           <li><a ui-sref="displayMessages" ui-sref-active="active">Display Messages</a></li>
@@ -51,7 +51,7 @@
             <i class="fa" ng-class="{'fa-angle-up': vm.writingData, 'fa-angle-down': !vm.writingData}"></i>
           </button>
         </li>
-        <ul ng-if="vm.writingData">
+        <ul id="writingData">
           <li><a ui-sref="push" ui-sref-active="active">Push</a></li>
           <li><a ui-sref="set" ui-sref-active="active">Set</a></li>
           <li><a ui-sref="update" ui-sref-active="active">Update</a></li>
@@ -64,7 +64,7 @@
             <i class="fa" ng-class="{'fa-angle-up': vm.authAndSecurity, 'fa-angle-down': !vm.authAndSecurity}"></i>
           </button>
         </li>
-        <ul ng-if="vm.authAndSecurity">
+        <ul id="authAndSecurity">
           <li><a ui-sref="firebaseAuthentication" ui-sref-active="active">Firebase Authentication</a></li>
           <li><a ui-sref="addingAuthentication" ui-sref-active="active">Adding Authentication</a></li>
           <li><a ui-sref="applicationSecurity" ui-sref-active="active">Application Security</a></li>
@@ -80,7 +80,7 @@
             <i class="fa" ng-class="{'fa-angle-up': vm.search, 'fa-angle-down': !vm.search}"></i>
           </button>
         </li>
-        <ul ng-if="vm.search">
+        <ul id="search">
           <li><a ui-sref="firebaseQuery" ui-sref-active="active">Firebase Query</a></li>
           <li><a ui-sref="privateChatSearch" ui-sref-active="active">Private Chat Search</a></li>
           <li><a ui-sref="advancedReadWatch" ui-sref-active="active">Advanced Read - $watch()</a></li>
@@ -92,7 +92,7 @@
             <i class="fa" ng-class="{'fa-angle-up': vm.cliAndHosting, 'fa-angle-down': !vm.cliAndHosting}"></i>
           </button>
         </li>
-        <ul ng-if="vm.cliAndHosting">
+        <ul id="cliAndHosting">
           <li><a ui-sref="firebaseCli" ui-sref-active="active">Firebase CLI</a></li>
           <li><a ui-sref="deployToFirebaseHosting" ui-sref-active="active">Deploy to Firebase Hosting</a></li>
           <li><a ui-sref="firebaseHosting" ui-sref-active="active">Firebase Hosting</a></li>
@@ -103,7 +103,7 @@
             <i class="fa" ng-class="{'fa-angle-up': vm.firebaseStorage, 'fa-angle-down': !vm.firebaseStorage}"></i>
           </button>
         </li>
-        <ul ng-if="vm.firebaseStorage">
+        <ul id="firebaseStorage">
           <li><a ui-sref="firebaseStorage" ui-sref-active="active">Firebase Storage</a></li>
           <li><a ui-sref="firebaseStorageRead" ui-sref-active="active">Read</a></li>
           <li><a ui-sref="firebaseStorageWrite" ui-sref-active="active">Write</a></li>
@@ -114,7 +114,7 @@
             <i class="fa" ng-class="{'fa-angle-up': vm.challenges, 'fa-angle-down': !vm.challenges}"></i>
           </button>
         </li>
-        <ul ng-if="vm.challenges">
+        <ul id="challenges">
           <li><a ui-sref="addImageToChat" ui-sref-active="active">Add Images to Chat</a></li>
           <li><a ui-sref="deployToCordova" ui-sref-active="active">Deploy With Cordova</a></li>
         </ul>
@@ -124,7 +124,7 @@
             <i class="fa" ng-class="{'fa-angle-up': vm.closingRemarks, 'fa-angle-down': !vm.closingRemarks}"></i>
           </button>
         </li>
-        <ul ng-if="vm.closingRemarks">
+        <ul id="closingRemarks">
           <li><a ui-sref="otherFirebaseFeatures" ui-sref-active="active">Other Firebase Features</a></li>
           <li><a ui-sref="finish" ui-sref-active="active">Finish</a></li>
         </ul>

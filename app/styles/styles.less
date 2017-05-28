@@ -18,6 +18,7 @@ body {
   font-size: 1rem;
   background: #FAFAFA;
   margin: 0;
+  padding-bottom: 2rem;
 }
 .container {
   display: flex;
@@ -45,6 +46,11 @@ nav, main, footer {
 }
 
 footer {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: white;
   a[rel=license] img {
     border: 0;
     width: 80px;
@@ -116,8 +122,10 @@ main {
   background: white;
   margin: 1rem;
   box-shadow: .25rem .25rem .5rem rgba(0, 0, 0, .1);
-  width: 68%;
   padding: 1rem;
+  position: absolute;
+  right: 1rem;
+  width: 65%;
   img {
     border: solid 1px rgba(64, 64, 64, .1);
     border-radius: 4px;
@@ -127,6 +135,19 @@ main {
     max-width: 50rem;
     display: block;
   }
+}
+
+.view-animate.ng-enter, .view-animate.ng-leave {
+  transition:all cubic-bezier(0.250, 0.460, 0.450, 0.940) 500ms;
+}
+.view-animate.ng-enter {
+  left:100%;
+}
+.view-animate.ng-enter.ng-enter-active {
+  left:30%;
+}
+.view-animate.ng-leave.ng-leave-active {
+  right:-100%;
 }
 
 .section {
@@ -401,6 +422,8 @@ pre.console {
     margin-bottom: 0;
   }
 }
+
+
 
 /* Medium devices (desktops, 992px and up) */
 @media (min-width: 992px) {}

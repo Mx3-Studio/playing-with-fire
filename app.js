@@ -6,6 +6,7 @@
 
   .module('app', [
       'ui.router',
+      'ngAnimate',
       'app.core',
       'app.tutorial',
       'app.introduction',
@@ -22,6 +23,7 @@
     ])
 
   .config(['$stateProvider', '$urlRouterProvider', Routes])
+
   .controller('MainController', MainController);
 
   function MainController($scope, $state, $rootScope) {
@@ -33,6 +35,8 @@
 
     vm.isExpanded = function (c) {
       vm[c] = vm[c] ? false : true;
+      var element = '#' + c;
+      jQuery(element).slideToggle();
     };
     var sections = {
       'Introduction' : 'introduction',
@@ -50,17 +54,31 @@
 
     $rootScope.$on('$stateChangeSuccess', function(event, toState, toParam, fromState, fromParams) {
       angular.forEach(sections, function(s) {
-        if (s !== toState.section) { vm[s] = false; }
+        var element = '#' + s;
+        if (s !== sections[toState.section]) {
+          vm[s] = false;
+          jQuery(element).slideUp();
+        }
       });
-      vm[sections[toState.section]] = true;
+      var current = '#' + sections[toState.section];
+      if (!vm[sections[toState.section]]) {
+        vm[sections[toState.section]]  = true;
+        jQuery(current).slideDown();
+      }
     });
 
+    $rootScope.$on('$stateChangeError', function(event, toState, toParams, fromState, fromParams, error) {
+      $state.go('error');
+    });
+    $rootScope.$on('$stateNotFound', function(event, toState, toParams, fromState, fromParams, error) {
+      $state.go('error');
+    });
 
   }
 
 
   function Routes($stateProvider, $urlRouterProvider) {
-    $urlRouterProvider.otherwise('/');
+    $urlRouterProvider.otherwise('error');
 
     $stateProvider
       .state('home', {
@@ -77,6 +95,10 @@
             url: 'resources',
             title: 'Start Tutorial'
         },
+      })
+      .state('error', {
+        url: '/error',
+        templateUrl: 'app/modules/core/components/error.html'
       })
 
       .state('resources', {
@@ -701,9 +723,7 @@
       .state('challengesImages', {
         url: '/challengesImages',
         templateUrl: 'app/modules/tutorial/challenges-images.html',
-      })
-
-      ;
+      });
   }
 
 }());
