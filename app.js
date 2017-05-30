@@ -28,7 +28,8 @@
 
   .controller('MainController', MainController);
 
-  function MainController($scope, $state, $rootScope) {
+  function MainController($scope, $state, $rootScope, $location, $timeout) {
+    var notesPopup = {};
     var vm = this;
     // vm.introduction = true;
     vm.writingData = true;
@@ -55,6 +56,7 @@
     };
 
     $rootScope.$on('$stateChangeSuccess', function(event, toState, toParam, fromState, fromParams) {
+      refreshNotes();
       angular.forEach(sections, function(s) {
         var element = '#' + s;
         if (s !== sections[toState.section]) {
@@ -75,6 +77,46 @@
     $rootScope.$on('$stateNotFound', function(event, toState, toParams, fromState, fromParams, error) {
       $state.go('error');
     });
+
+    //Provide Keyboard & Remote Support
+    vm.keyaction = function(ev) {
+      //console.log('key', ev.keyCode);
+      switch(ev.keyCode) {
+        case /*s*/ 83: case /*n*/ 78:
+          notesPopup = window.open("", "pwf:notes", "height=400,width=600,location=no,menubar=no,status=no,toolbar=no");
+          refreshNotes();
+          break;
+        case /*remote.blank*/ 190:
+          $(window.document.body).toggle();
+          break;
+        case /*remote.right*/ 34: case /*key.right*/ 39:
+          window.location = $('.next').attr('href');
+          break;
+        case /*remote.left*/ 33: case /*key.left*/ 37:
+          window.location = $('.previous').attr('href');
+          break;
+      }
+    };
+
+    //Update the Notes Popup
+    function refreshNotes() {
+      if(notesPopup && notesPopup.document) {
+        /* Something really strange is going on that seems to be based upon calling thihs method
+           from the stateChangeSuccess event. For some reason both pages content are availble to
+           JQuery in this context, so we do some juggling to handle this odd case.
+        */
+        var len = (notesPopup.blank === false) ? true : false;
+
+        $timeout(function() {
+          //Set Window Title
+          notesPopup.document.title = "Notes: " + $($('h1').get(0)).text();
+          //Set Note Content
+          var notes = $('.notes');
+          notesPopup.blank = notes.length <= len;
+          $(notesPopup.document.body).html( notes.length>len ? notes.html() : '<p></p>' );
+        }, 200);
+      }
+    }
 
   }
 

@@ -38,7 +38,7 @@
     <meta property="og:description" content="Learn how easy it can be to use Firebase to take your app idea from concept to production. In this workshop you will build your own Twitter-like social messaging application, start to finish." />
 
   </head>
-  <body class="clearfix" ng-controller="MainController as vm">
+  <body class="clearfix" ng-controller="MainController as vm" ng-keydown="vm.keyaction($event)">
     <div ng-include="'/app/modules/core/components/header.html'"></div>
     <div class="container">
 
