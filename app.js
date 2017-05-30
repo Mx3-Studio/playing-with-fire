@@ -6,6 +6,8 @@
 
   .module('app', [
       'ui.router',
+      'angulartics',
+      'angulartics.google.analytics',
       'ngAnimate',
       'app.core',
       'app.tutorial',
