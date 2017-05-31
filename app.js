@@ -40,6 +40,25 @@
       var element = '#' + c;
       jQuery(element).slideToggle();
     };
+
+    vm.toggleNav = function () {
+      jQuery('.side-nav').slideToggle();
+    };
+
+    $(window).on("resize.doResize", function () {
+      console.log($(window).width());
+      $scope.$apply(function () {
+          if ($(window).width() < 768) {
+            $('.side-nav').hide();
+          } else {
+            $('.side-nav').show();
+          }
+      });
+    });
+    $scope.$on("$destroy", function() {
+      $('window').off("resize.doResize");
+    });
+
     var sections = {
       'Introduction' : 'introduction',
       'System Setup': 'systemSetup',
@@ -79,6 +98,7 @@
     //Provide Keyboard & Remote Support
     vm.keyaction = function(ev) {
       //console.log('key', ev.keyCode);
+      ev.preventDefault();
       switch(ev.keyCode) {
         case /*s*/ 83: case /*n*/ 78:
           notesPopup = window.open("", "pwf:notes", "height=400,width=600,location=no,menubar=no,status=no,toolbar=no");
