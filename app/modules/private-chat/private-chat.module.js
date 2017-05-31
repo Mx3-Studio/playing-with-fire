@@ -1,6 +1,6 @@
-angular.module('app.search', [])
+angular.module('app.privateChat', [])
 
-  .controller('SearchController', search);
+  .controller('PrivateChatController', search);
 
   function search ($state) {
     var vm = this;

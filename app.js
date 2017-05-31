@@ -14,10 +14,9 @@
       'app.introduction',
       'app.systemSetup',
       'app.gettingStarted',
-      'app.consumeData',
-      'app.writingData',
+      'app.realTimeChat',
       'app.authAndSecurity',
-      'app.search',
+      'app.privateChat',
       'app.cliAndHosting',
       'app.firebaseStorage',
       'app.challenges',
@@ -45,10 +44,9 @@
       'Introduction' : 'introduction',
       'System Setup': 'systemSetup',
       'Getting Started': 'gettingStarted',
-      'Consuming Data': 'consumeData',
-      'Writing Data': 'writingData',
+      'Real Time Chat': 'realTimeChat',
       'Authentication & Security': 'authAndSecurity',
-      'Search': 'search',
+      'Private Chat': 'privateChat',
       'Firebase CLI & Hosting': 'cliAndHosting',
       'Firebase Storage': 'firebaseStorage',
       'Challenges': 'challenges',
@@ -86,7 +84,7 @@
           notesPopup = window.open("", "pwf:notes", "height=400,width=600,location=no,menubar=no,status=no,toolbar=no");
           refreshNotes();
           break;
-        case /*remote.blank*/ 190:
+        case /*linux:remote.blank*/ 190: case /*mac:remote.blank*/ 66:
           $(window.document.body).toggle();
           break;
         case /*remote.right*/ 34: case /*key.right*/ 39:
@@ -304,10 +302,10 @@
 
       .state('readingData', {
         url: '/reading-data',
-        templateUrl: 'app/modules/consume-data/views/read-data.html',
-        controller: 'ConsumeDataController as vm',
+        templateUrl: 'app/modules/real-time-chat/views/read-data.html',
+        controller: 'RealTimeChatController as vm',
         title: 'Reading Data',
-        section: 'Consuming Data',
+        section: 'Real Time Chat',
         previous: {
           title: 'Configure App Initialization',
           url: 'gettingStarted3'
@@ -319,10 +317,10 @@
       })
       .state('advancedRead', {
         url: '/advanced-read',
-        templateUrl: 'app/modules/consume-data/views/advanced-read.html',
-        controller: 'ConsumeDataController as vm',
+        templateUrl: 'app/modules/real-time-chat/views/advanced-read.html',
+        controller: 'RealTimeChatController as vm',
         title: 'Advanced Read',
-        section: 'Consuming Data',
+        section: 'Real Time Chat',
         previous: {
           title: 'Reading Data',
           url: 'readingData'
@@ -334,10 +332,10 @@
       })
       .state('displayMessages', {
         url: '/display-messages',
-        templateUrl: 'app/modules/consume-data/views/display-messages.html',
-        controller: 'ConsumeDataController as vm',
+        templateUrl: 'app/modules/real-time-chat/views/display-messages.html',
+        controller: 'RealTimeChatController as vm',
         title: 'Display Messages',
-        section: 'Consuming Data',
+        section: 'Real Time Chat',
         previous: {
           title: 'Advanced Read',
           url: 'advancedRead'
@@ -350,10 +348,10 @@
 
       .state('push', {
         url: '/push',
-        templateUrl: 'app/modules/writing-data/views/push.html',
-        controller: 'writingDataController as vm',
+        templateUrl: 'app/modules/real-time-chat/views/push.html',
+        controller: 'RealTimeChatController as vm',
         title: 'Push',
-        section: 'Writing Data',
+        section: 'Real Time Chat',
         previous: {
           title: 'Display Messages',
           url: 'displayMessages'
@@ -365,10 +363,10 @@
       })
       .state('set', {
         url: '/set',
-        templateUrl: 'app/modules/writing-data/views/set.html',
-        controller: 'writingDataController as vm',
+        templateUrl: 'app/modules/real-time-chat/views/set.html',
+        controller: 'RealTimeChatController as vm',
         title: 'Set',
-        section: 'Writing Data',
+        section: 'Real Time Chat',
         previous: {
           title: 'Push',
           url: 'push'
@@ -380,10 +378,10 @@
       })
       .state('update', {
         url: '/update',
-        templateUrl: 'app/modules/writing-data/views/update.html',
-        controller: 'writingDataController as vm',
+        templateUrl: 'app/modules/real-time-chat/views/update.html',
+        controller: 'RealTimeChatController as vm',
         title: 'Update',
-        section: 'Writing Data',
+        section: 'Real Time Chat',
         previous: {
           title: 'Set',
           url: 'set'
@@ -395,10 +393,10 @@
       })
       .state('advancedWriteUpdate', {
         url: '/advanced-write-update',
-        templateUrl: 'app/modules/writing-data/views/advanced-write-update.html',
-        controller: 'writingDataController as vm',
+        templateUrl: 'app/modules/real-time-chat/views/advanced-write-update.html',
+        controller: 'RealTimeChatController as vm',
         title: 'Advanced Write - Update',
-        section: 'Writing Data',
+        section: 'Real Time Chat',
         previous: {
           title: 'Update',
           url: 'update'
@@ -410,13 +408,59 @@
       })
       .state('createMessages', {
         url: '/create-messages',
-        templateUrl: 'app/modules/writing-data/views/create-messages.html',
-        controller: 'writingDataController as vm',
+        templateUrl: 'app/modules/real-time-chat/views/create-messages.html',
+        controller: 'RealTimeChatController as vm',
         title: 'Create Messages',
-        section: 'Writing Data',
+        section: 'Real Time Chat',
         previous: {
           title: 'Advanced Write - Update',
           url: 'advancedWriteUpdate'
+        },
+        next: {
+          title: 'Firebase CLI',
+          url: 'firebaseCli'
+        }
+      })
+
+      .state('firebaseCli', {
+        url: '/firebase-cli',
+        templateUrl: 'app/modules/cli-and-hosting/views/firebase-cli.html',
+        controller: 'CliAndHostingController as vm',
+        title: 'Firebae CLI',
+        section: 'Firebase CLI & Hosting',
+        previous: {
+          title: 'Create Messages',
+          url: 'createMessages'
+        },
+        next: {
+          title: 'Deploy to Firebase Hosting',
+          url: 'deployToFirebaseHosting'
+        }
+      })
+      .state('deployToFirebaseHosting', {
+        url: '/deploy-to-firebase-hosting',
+        templateUrl: 'app/modules/cli-and-hosting/views/deploy-to-firebase-hosting.html',
+        controller: 'CliAndHostingController as vm',
+        title: 'Deploy to Firebase Hosting',
+        section: 'Firebase CLI & Hosting',
+        previous: {
+          title: 'Firebase CLI',
+          url: 'firebaseCli'
+        },
+        next: {
+          title: 'Firebase Hosting',
+          url: 'firebaseHosting'
+        }
+      })
+      .state('firebaseHosting', {
+        url: '/firebase-hosting',
+        templateUrl: 'app/modules/cli-and-hosting/views/firebase-hosting.html',
+        controller: 'CliAndHostingController as vm',
+        title: 'Firebase Hosting',
+        section: 'Firebase CLI & Hosting',
+        previous: {
+          title: 'Deploy to Firebase Hosting',
+          url: 'deployToFirebaseHosting'
         },
         next: {
           title: 'Firebase Authentication',
@@ -431,8 +475,8 @@
         title: 'Firebase Authentication',
         section: 'Authentication & Security',
         previous: {
-          title: 'Create Messages',
-          url: 'createMessages'
+          title: 'Firebase Hosting',
+          url: 'firebaseHosting'
         },
         next: {
           title: 'Adding Authentication',
@@ -547,10 +591,10 @@
 
       .state('firebaseQuery', {
         url: '/fireabase-query',
-        templateUrl: 'app/modules/search/views/firebase-query.html',
-        controller: 'SearchController as vm',
+        templateUrl: 'app/modules/private-chat/views/firebase-query.html',
+        controller: 'PrivateChatController as vm',
         title: 'Fireabase Query',
-        section: 'Search',
+        section: 'Private Chat',
         previous: {
           title: 'Adding Database Security',
           url: 'addingDatabaseSecurity'
@@ -562,10 +606,10 @@
       })
       .state('privateChatSearch', {
         url: '/priave-chat-search',
-        templateUrl: 'app/modules/search/views/private-chat-search.html',
-        controller: 'SearchController as vm',
+        templateUrl: 'app/modules/private-chat/views/private-chat-search.html',
+        controller: 'PrivateChatController as vm',
         title: 'Private Chat Search',
-        section: 'Search',
+        section: 'Private Chat',
         previous: {
           title: 'Firebase Query',
           url: 'firebaseQuery'
@@ -577,10 +621,10 @@
       })
       .state('advancedReadWatch', {
         url: '/advanced-read-watch',
-        templateUrl: 'app/modules/search/views/advanced-read-watch.html',
-        controller: 'SearchController as vm',
+        templateUrl: 'app/modules/private-chat/views/advanced-read-watch.html',
+        controller: 'PrivateChatController as vm',
         title: 'Advanced Read - $watch(callback, context)',
-        section: 'Search',
+        section: 'Private Chat',
         previous: {
           title: 'Private Chat Search',
           url: 'privateChatSearch'
@@ -592,65 +636,21 @@
       })
       .state('privateChatMessages', {
         url: '/privateChatMessages',
-        templateUrl: 'app/modules/search/views/private-chat-messages.html',
-        controller: 'SearchController as vm',
+        templateUrl: 'app/modules/private-chat/views/private-chat-messages.html',
+        controller: 'PrivateChatController as vm',
         title: 'Private Chat Messages',
-        section: 'Search',
+        section: 'Private Chat',
         previous: {
           title: 'Advanced Read - $watch()',
           url: 'advancedReadWatch'
-        },
-        next: {
-          title: 'Firebase CLI',
-          url: 'firebaseCli'
-        }
-      })
-
-      .state('firebaseCli', {
-        url: '/firebase-cli',
-        templateUrl: 'app/modules/cli-and-hosting/views/firebase-cli.html',
-        controller: 'CliAndHostingController as vm',
-        title: 'Firebae CLI',
-        section: 'Firebase CLI & Hosting',
-        previous: {
-          title: 'Private Chat Messages',
-          url: 'privateChatMessages'
-        },
-        next: {
-          title: 'Deploy to Firebase Hosting',
-          url: 'deployToFirebaseHosting'
-        }
-      })
-      .state('deployToFirebaseHosting', {
-        url: '/deploy-to-firebase-hosting',
-        templateUrl: 'app/modules/cli-and-hosting/views/deploy-to-firebase-hosting.html',
-        controller: 'CliAndHostingController as vm',
-        title: 'Deploy to Firebase Hosting',
-        section: 'Firebase CLI & Hosting',
-        previous: {
-          title: 'Firebase CLI',
-          url: 'firebaseCli'
-        },
-        next: {
-          title: 'Firebase Hosting',
-          url: 'firebaseHosting'
-        }
-      })
-      .state('firebaseHosting', {
-        url: '/firebase-hosting',
-        templateUrl: 'app/modules/cli-and-hosting/views/firebase-hosting.html',
-        controller: 'CliAndHostingController as vm',
-        title: 'Firebase Hosting',
-        section: 'Firebase CLI & Hosting',
-        previous: {
-          title: 'Deploy to Firebase Hosting',
-          url: 'deployToFirebaseHosting'
         },
         next: {
           title: 'Firebase Storage',
           url: 'firebaseStorage'
         }
       })
+
+
 
       .state('firebaseStorage', {
         url: '/firebase-storage',
