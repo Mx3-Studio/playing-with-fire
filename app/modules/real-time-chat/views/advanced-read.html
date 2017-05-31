@@ -29,3 +29,9 @@
 </div>
 
 <div ng-include src="'/app/modules/core/components/buttons.html'"></div>
+
+<div class="notes">
+  <p>Sometimes when reading data you need to react to the fact that the data has been retrieved. Both the Firebase API and AngularFire provide a mechanism to do this.</p>
+  <p>For Firebase, this is the default method -- either use the “once” method, or use “on” to read data and listen for updates, and then react to the data being loaded through the promise.</p>
+  <p>For AngularFire the promise is not necessary as the $firebaseObject or $firebaseArray resolve to the data itself automatically. However one of the recommended implementations for services methods when using AngularFire is to return a $loaded() method from an array or object so that consumers of that service may depend upon the promise as necessary to suit their needs.</p>
+</div>

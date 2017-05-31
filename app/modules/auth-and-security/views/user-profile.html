@@ -26,3 +26,9 @@ var profile = $firebaseObject(ref);</code></pre>
   </div>
 </div>
 <div ng-include src="'/app/modules/core/components/buttons.html'"></div>
+
+<div class="notes">
+  <p>The AngularFire $getAuth is significantly more convenient than the Firebase API currentUser since it is guaranteed to resolve the User.</p>
+  <p>Use of AngularFire methods relieve much of the pain involved in integrating Firebase authentication and authorization into an Angular JS application.</p>
+  <p>Just like $firebaseArray, the $firebaseObject method consumes a database reference and returns the object, but in this case it’s a single data object rather than a JavaScript Array.</p>
+</div>
