@@ -21,3 +21,36 @@ ref.child('images').put(file)
 </div>
 
 <div ng-include src="'/app/modules/core/components/buttons.html'"></div>
+
+<div class="notes">
+  <p><b>MAM Say:</b> You can store files, blobs, base64 and more using the put() method to upload them to your storage bucket.</p>
+  <p>We are using angular-file-model which is a Simple Angular.js directive that allows input element's of type file to be handled in models inside a controller's scope.</p>
+  <p>You can also manage uploads by pausing, resuming, or canceling.</p>
+
+  <p><b>Notes:</b> Then add thestorageBucket attribute to your config</p>
+
+  <p><b>Upload from:</b></p>
+  <ul>
+    <li>Blob</li>
+    <li>File</li>
+    <li>Byte Array</li>
+    <li>String
+      <ul>
+        <li>Raw string</li>
+        <li>Base64</li>
+        <li>Base64url</li>
+        <li>Data Url</li>
+      </ul>
+    </li>
+  </ul>
+
+  <p>Can also manage uploads:</p>
+  <ul>
+    <li>Metadata</li>
+    <li>Pause</li>
+    <li>Resume</li>
+    <li>Cancel</li>
+  </ul>
+
+  <p>And Monitor progress</p>
+</div>

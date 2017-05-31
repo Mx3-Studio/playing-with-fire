@@ -28,3 +28,11 @@ itemRef.then(function(snapshot) {
 </div>
 
 <div ng-include src="'/app/modules/core/components/buttons.html'"></div>
+
+<div class="notes">
+  <p>Some notes about Firebase-generated IDs:</p>
+  <ul>
+    <li>The ID is globally unique and generated immediately (Synchronously) by the API</li>
+    <li>The ID is sequentially sortable by time created - meaning that lists will automatically be sorted by the order in which the elements were created</li>
+  </ul>
+</div>

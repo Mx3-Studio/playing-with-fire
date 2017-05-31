@@ -88,10 +88,16 @@
           $(window.document.body).toggle();
           break;
         case /*remote.right*/ 34: case /*key.right*/ 39:
-          window.location = $('.next').attr('href');
+          var next = $('.next');
+          if(next.length > 0) {
+            window.location = next.attr('href');
+          }
           break;
         case /*remote.left*/ 33: case /*key.left*/ 37:
-          window.location = $('.previous').attr('href');
+          var previous = $('.previous');
+          if(previous.length > 0) {
+            window.location = previous.attr('href');
+          }
           break;
       }
     };
@@ -234,11 +240,26 @@
             url: 'systemSetup'
         },
         next: {
-          url: 'gettingStarted',
-          title: 'Setup Firebase Console Account'
+          title: 'Firebase Console',
+          url: 'firebaseConsole'
         }
       })
 
+      .state('firebaseConsole', {
+        url: '/firebase-console',
+        templateUrl: 'app/modules/getting-started/views/firebase-console.html',
+        controller: 'GettingStartedController as vm',
+        title: 'Firebase Console',
+        section: 'Getting Started',
+        previous: {
+          title: 'Install & Test Started App',
+          url: 'systemSetup2'
+        },
+        next: {
+          title: 'Setup Firebase Console Account',
+          url: 'gettingStarted'
+        }
+      })
       .state('gettingStarted', {
         url: '/setup-firebase-console-account',
         templateUrl: 'app/modules/getting-started/views/getting-started.html',
@@ -246,8 +267,8 @@
         title: 'Setup Firebase Console Account',
         section: 'Getting Started',
         previous: {
-          title: 'Install & Test Started App',
-          url: 'systemSetup2'
+          title: 'Firebase Console',
+          url: 'firebaseConsole'
         },
         next: {
           title: 'Load Starter Database',
@@ -265,8 +286,8 @@
           url: 'gettingStarted'
         },
         next: {
-          title: 'Configure App Initialization',
-          url: 'gettingStarted3'
+          title: 'Firebase API',
+          url: 'firebaseAPI'
         }
       })
       .state('firebaseAPI', {
@@ -494,34 +515,34 @@
           url: 'firebaseAuthentication'
         },
         next: {
-          title: 'Application Security',
-          url: 'applicationSecurity'
+          title: 'User Profiles',
+          url: 'userProfile'
         }
       })
-      .state('applicationSecurity', {
-        url: '/application-security',
-        templateUrl: 'app/modules/auth-and-security/views/application-security.html',
+      .state('userProfile', {
+        url: '/user-profile',
+        templateUrl: 'app/modules/auth-and-security/views/user-profile.html',
         controller: 'AuthAndSecurityController as vm',
-        title: 'Application Security',
+        title: 'User Profiles',
         section: 'Authentication & Security',
         previous: {
           title: 'Adding Authentication',
           url: 'addingAuthentication'
         },
         next: {
-          title: 'Adding Application Security',
-          url: 'addingSecurity'
+          title: 'Adding User Profiles',
+          url: 'addingUserProfile'
         }
       })
-      .state('addingSecurity', {
-        url: '/adding-security',
-        templateUrl: 'app/modules/auth-and-security/views/adding-security.html',
+      .state('addingUserProfile', {
+        url: '/adding-user-profile',
+        templateUrl: 'app/modules/auth-and-security/views/adding-user-profile.html',
         controller: 'AuthAndSecurityController as vm',
-        title: 'Adding Application Security',
+        title: 'Adding User Profiles',
         section: 'Authentication & Security',
         previous: {
-          title: 'Application Security',
-          url: 'applicationSecurity'
+          title: 'User Profiles',
+          url: 'userProfile'
         },
         next: {
           title: 'Authorization',
@@ -535,8 +556,8 @@
         title: 'Authorization',
         section: 'Authentication & Security',
         previous: {
-          title: 'Adding Application Security',
-          url: 'addingSecurity'
+          title: 'Adding User Profiles',
+          url: 'addingUserProfile'
         },
         next: {
           title: 'Adding Authorization',
@@ -590,10 +611,10 @@
       })
 
       .state('firebaseQuery', {
-        url: '/fireabase-query',
+        url: '/firebase-query',
         templateUrl: 'app/modules/private-chat/views/firebase-query.html',
         controller: 'PrivateChatController as vm',
-        title: 'Fireabase Query',
+        title: 'Firebase Query',
         section: 'Private Chat',
         previous: {
           title: 'Adding Database Security',
@@ -605,7 +626,7 @@
         }
       })
       .state('privateChatSearch', {
-        url: '/priave-chat-search',
+        url: '/private-chat-search',
         templateUrl: 'app/modules/private-chat/views/private-chat-search.html',
         controller: 'PrivateChatController as vm',
         title: 'Private Chat Search',
@@ -635,7 +656,7 @@
         }
       })
       .state('privateChatMessages', {
-        url: '/privateChatMessages',
+        url: '/private-chat-messages',
         templateUrl: 'app/modules/private-chat/views/private-chat-messages.html',
         controller: 'PrivateChatController as vm',
         title: 'Private Chat Messages',
@@ -659,8 +680,8 @@
         title: 'Firebase Storage',
         section: 'Firebase Storage',
         previous: {
-          title: 'Firebase Hosting',
-          url: 'firebaseHosting'
+          title: 'Private Chat Messages',
+          url: 'privateChatMessages'
         },
         next: {
           title: 'Read',

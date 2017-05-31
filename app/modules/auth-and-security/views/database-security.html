@@ -40,3 +40,12 @@
 </div>
 
 <div ng-include src="'/app/modules/core/components/buttons.html'"></div>
+
+<div class="notes">
+  <p>Go Over the Database Rules / Security Model with examples</p>
+  <p>Firebase database rules cascade in a manner not altogether different from CSS. The default access level is assumed to be “denied” until a response of “approved” is encountered. As soon as access to an object is approved for a user, all objects below that in the hierarchy are granted that same access without checking. This is a type of logical shortcut that improves performance and simplifies the security model.</p>
+  <p>Both “Read” and “Write” permissions may be set for every object, with boolean true representing “approved” and boolean false representing “denied”.</p>
+  <p>Permissions may be simple boolean values, or may be complex expressions.</p>
+  <p>In the example shown, the database structure is on the right and the rules are on the left. The /check object may be read by anyone, but written by no one. There is one user who can read their own object. No one may write to the user object. Anyone may read the profile, which includes the name. Note the $user_id variable in the rules structure - this construct is particularly useful for matching objects with a Firebase-generated ID.</p>
+  <p>Demo: Show the Rules Simulator in the Console</p>
+</div>

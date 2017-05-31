@@ -58,3 +58,34 @@ friends.$watch(function (event) {
   </div>
 </div>
 <div ng-include src="'/app/modules/core/components/buttons.html'"></div>
+
+<div class="notes">
+  <p><b>MAM Say:</b> We are going to be saving new chat messages to both you and your friends private chat lists.</p>
+  <p>Making a $firebaseArray of the chat thread with your friends uid in your private chat list.</p>
+  <p>$watching the chat thread array and using the supplied getFriendsProfiles() function to get that friends profile to display in your friends list in the friends view.</p>
+  <p>And modifying your database rules to work with private chats.</p>
+
+  <p><b>MAM Ask:</b> Does anyone have any questions?</p>
+
+  <p><b>Finished Code:</b></p>
+  <p><b>Updating multiple places at once</b></p>
+  <ul>
+    <li>updates['/users/' + currentUser.profile.uid + '/chats/' + vm.friend + '/' + key] = data;</li>
+    <li>updates['/users/' + vm.friend + '/chats/' + currentUser.profile.uid + '/' + key] = data;</li>
+  </ul>
+
+  <p><b>Get the correct chat thread from the database</b></p>
+  <ul>
+    <li>vm.chats = $firebaseArray(FirebaseRef.db.child('users').child(currentUser.uid).child('chats').child(vm.friend));</li>
+  </ul>
+
+  <p><b>Watch the friends list for changes</b></p>
+  <pre><code>
+  vm.friends.$watch(function () {
+    getFriendsProfiles();
+  });
+  </code></pre>
+
+  <p><b>Modify the database rules</b></p>
+  <p>Modify the database rules for the idea of private chats</p>
+</div>

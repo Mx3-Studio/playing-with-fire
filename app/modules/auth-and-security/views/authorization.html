@@ -27,3 +27,9 @@ function getUser($firebaseAuth) {
 
 
 <div ng-include src="'/app/modules/core/components/buttons.html'"></div>
+
+<div class="notes">
+  <p>Authorization is where AngularFire really shines. They provide service methods which integrate directly into Angular routing to ensure the user data resolves before the controller is loaded.</p>
+  <p>Use $waitForSignIn to return the user when authentication is optional.</p>
+  <p>Use $requireSignIn to return the user when authentication is required, to prevent any unintended access to the page (even momentary).</p>
+</div>

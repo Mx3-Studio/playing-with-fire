@@ -41,3 +41,10 @@
 
   <div ng-include src="'/app/modules/core/components/buttons.html'"></div>
 </div>
+
+<div class="notes">
+  <p>Given the JSON data snippet on the right, the code on the left illustrates how to build a reference and read the data.</p>
+  <p>In the first Read example we are using the Firebase API to read an object once, and do something with the results when returned. However, remember that Firebase is a real-time database. We could replace the method “once” with “on” and this code would run automatically anytime the data changed within the database.</p>
+  <p>Using AngularFire we can maintain a perpetual list of data from the database using the $firebaseArray. Simply create an array at a specific reference and that “data” object will always contain the current list of chats found in the database. It will be updated in real-time without you writing another line of code.</p>
+  <p>The $firebaseArray method consumes a database reference and returns a JavaScript array containing the objects at that location.</p>
+</div>
