@@ -1,0 +1,47 @@
+<div class="section">{{vm.section}}</div>
+<h1><img src="/app/images/doStuffIcon.svg" alt="action">{{vm.title}}</h1>
+<h2>Success Criteria</h2>
+<p>Display User Avatar and Display Name with messages</p>
+<div class="gettingStarted">
+  <div>
+    <div>
+      <h2>Instructions</h2>
+      <p>Implement the getProfileByID method in the ProfileService to return the user profile from /users/{userId}/profile</p>
+      <p>Update the createChat method in the ChatController to add the user attributes to the chat object</p>
+      <h2>Hints</h2>
+      <p>Use $firebaseObject to load the User Profile: <a href="https://github.com/firebase/angularfire/blob/master/docs/reference.md#firebaseobject" target="_blank"></a>API Reference | AngularFire: $firebaseObject</p>
+      <p>Chats should now have the additional attributes:
+        <ul>
+          <li>displayName - the name of the user who created the chat, from their profile</li>
+          <li>uid - the ID of the User who created the chat</li>
+          <li>photoURL - the profile image of the person who created the chat</li>
+        </ul>
+      </p>
+    </div>
+    <div>
+        <pre><code>var db = firebase.database().ref();
+var auth = firebase.auth();
+
+// Current user from Firebase API
+var currentUser = auth.currentUser;
+
+// Retrieve the User Auth
+var user = $firebaseAuth()
+  .$getAuth();
+
+// Load a user profile
+var ref = db
+  .child('/users').child(user.uid);
+var profile = $firebaseObject(ref);
+</code></pre>
+    </div>
+  </div>
+</div>
+
+<h2>QA</h2>
+<p>You should be able to view your user profile information when you create new chat messages.</p>
+<div ng-include src="'/app/modules/core/components/buttons.html'"></div>
+
+<div class="notes">
+  <p>Transition: Implement the Profile Service to read the User information that we are managing within the database. For now this information will be used to populate Username and Avatar within the chat stream, but later it will be used to connect with friends and initiate private chats.</p>
+</div>

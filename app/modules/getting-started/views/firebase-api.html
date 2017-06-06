@@ -1,0 +1,63 @@
+<div class="section">{{vm.section}}</div>
+<h1>{{vm.title}}</h1>
+
+<div class="gettingStarted">
+  <div>
+    <div>
+      <ul>
+        <li>Initialization script</li>
+        <li>
+          May use path notation to locate and object
+          <code><pre>/chats/-Kf9kfiG0rwnlB1gtquA</pre></code>
+        </li>
+        <li>Firebase
+          <ul>
+            <li>Database</li>
+            <li>Reference</li>
+          </ul>
+        </li>
+        <li>AngularFire</li>
+      </ul>
+    </div>
+    <div>
+      <div>
+        <pre><code>
+  Fireside-73c10 {
+    "chats" : {
+      "-Kf9kfiG0rwnlB1gtquA" : {
+        "content" : "Hey",
+        "displayName" : "Martine Dowden",
+      }
+    }
+  }
+
+  // reference to database root: /
+  var db = firebase.database().ref();
+
+  // reference database objects
+  var chatsRef = db.child('chats');
+  var messageRef = chatsRef.child('-Kf9kfiG0rwnlB1gtquA');
+
+  // reference values
+  Var messageContentRef = messageRef.child('content');
+        </code></pre>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<div ng-include src="'/app/modules/core/components/buttons.html'"></div>
+
+<div class="notes">
+  <p>The Firebase API is made available through a JS library. The global “firebase” object provides access to the database, storage, auth, initialization and more.</p>
+  <p>The initialization script is generated for you within the Firebase Console and available under the “Add Firebase to your web app” link on the Project Overview page.</p>
+  <p>The Database object can provide a reference to a specific path by providing the full path as a parameter to .ref() however by default the reference is created to the root of the database, or slash (/).</p>
+  <p>You can use any number of .child() method calls on the reference to drill down into a specific object, and can even select an object attribute using this technique.</p>
+
+  <ul>
+    <li><a href="https://firebase.google.com/docs/reference/js/">https://firebase.google.com/docs/reference/js/</a></li>
+    <li><a href="https://github.com/firebase/angularfire">https://github.com/firebase/angularfire</a></li>
+    <li><a href="https://github.com/firebase/angularfire/blob/master/docs/reference.md">https://github.com/firebase/angularfire/blob/master/docs/reference.md</a></li>
+  </ul>
+</div>

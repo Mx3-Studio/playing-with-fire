@@ -1,0 +1,28 @@
+<div class="dark">
+  <div class="section">{{vm.section}}</div>
+  <h1>{{vm.title}}</h1>
+
+<pre><code>function newMultiUpdate(content, uid) {
+  // Some content and a UID.
+  var data = {
+    content: content,
+    uid: uid
+  };
+
+  // Get a key for the new Muti Update.
+  var newUpdateKey = firebase.database().ref().child('chats').push().key;
+
+  // Write the data simultaneously to more than one location
+  var locations = {};
+  locations['/chats/' + newUpdateKey] = data;
+  locations['/users/' + uid + '/' + newUpdateKey] = data;
+
+  return firebase.database().ref().update(locations);
+}</code></pre>
+
+  <div ng-include src="'/app/modules/core/components/buttons.html'"></div>
+</div>
+
+<div class="notes">
+  <p>Update multiple items at once using update()</p>
+</div>

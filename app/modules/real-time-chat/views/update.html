@@ -1,0 +1,33 @@
+
+  <div class="section">{{vm.section}}</div>
+  <h1>{{vm.title}}</h1>
+  <div class="gettingStarted">
+    <div>
+      <div>
+        <p>Updates only the values provided (Doesn’t replace the entire object)</p>
+        <p>Can be used to write multiple values to the Database at once. (Shown on the next slide)</p>
+        <p>Returns: non-null firebase.Promise containing void Resolves when update on server is complete.</p>
+      </div>
+      <div>
+<pre><code>var myData = {
+  // content: 'Hello, World!',
+  timestamp: Date.now()
+}
+
+var db = firebase.database().ref();
+
+// only update the timestamp
+var itemRef = db
+  .child('/chats')
+  .child(chatId)
+.update(myData);
+
+itemRef.then(function(snapshot) {
+  console.log(snapshot);
+});
+</code></pre>
+    </div>
+  </div>
+</div>
+
+<div ng-include src="'/app/modules/core/components/buttons.html'"></div>

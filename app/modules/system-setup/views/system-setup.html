@@ -1,11 +1,17 @@
-<h1>System Setup: Install Prerequisites</h1>
-<div class="columns">
+<div class="section">{{vm.section}}</div>
+<h1><img src="/app/images/doStuffIcon.svg" alt="action">{{vm.title}}</h1>
 
-  <section>
+<div>
+  <button ng-class="{active: vm.operatingSystem === 'mac'}" ng-click="vm.show('mac')">Mac</button>
+  <button ng-class="{active: vm.operatingSystem === 'linux'}" ng-click="vm.show('linux')">Linux</button>
+  <button ng-class="{active: vm.operatingSystem === 'windows'}" ng-click="vm.show('windows')">Windows</button>
+</div>
+
+  <section ng-if="vm.operatingSystem === 'mac'">
     <h2>Mac</h2>
     <p>You’ll need Homebrew, Node, &amp; NPM, and should probably have Gulp and Bower installed globally. You’ll need to be familiar with your command prompt at this point.</p>
     <p>Check to see if these are installed:</p>
-<code><pre>
+<code><pre class="console">
 # Homebrew
 $ brew -v
 
@@ -23,7 +29,7 @@ $ gulp -v
 $ bower -v
 </pre></code>
     <p>To install everything run the following</p>
-<code><pre>
+<code><pre class="console">
 $ ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 $ brew install git
 $ git config --global user.name "My Name"
@@ -33,11 +39,11 @@ $ npm install -g gulp bower
 </pre></code>
   </section>
 
-  <section>
+  <section ng-if="vm.operatingSystem === 'linux'">
     <h2>Linux</h2>
     <p>You’ll need Node &amp; NPM, and should probably have Gulp and Bower installed globally. You’ll need to be familiar with your command prompt at this point.</p>
     <p>Check to see if these are installed</p>
-<code><pre>
+<code><pre class="console">
 # Git
 $ git --version
 
@@ -53,7 +59,7 @@ $ bower -v
 </pre></code>
     <p>To install git, node and npm run the following</p>
     <p>Debian / Ubuntu / Mint</p>
-<code><pre>
+<code><pre class="console">
 $ curl -sL https://deb.nodesource.com/setup_6.x | sudo -E bash -
 $ sudo apt-get install -y nodejs
 $ sudo apt-get install -y build-essential nodejs-legacy git-all
@@ -68,7 +74,7 @@ $ yum install nodejs npm git-all
       <li><a href="https://git-scm.com/download/linux" target="_blank">Git: Download for Linux and Unix</a>
     </ul>
     <p>Then (everyone)</p>
-<code><pre>
+<code><pre class="console">
 # Configure Git
 $ git config --global user.name "My Name"
 $ git config --global user.email "myemail@gmail.com"
@@ -78,7 +84,7 @@ $ npm install -g gulp bower
 </pre></code>
   </section>
 
-  <section>
+  <section ng-if="vm.operatingSystem === 'windows'">
     <h2>Windows</h2>
     <p>You’ll need Node &amp; NPM, and should probably have Gulp and Bower installed globally.</p>
     <ol>
@@ -86,7 +92,7 @@ $ npm install -g gulp bower
       <li><a href="https://nodejs.org/dist/v6.10.0/node-v6.10.0-x86.msi" target="_blank">Run node installer</a></li>
     </ol>
     <p>At this point you’ll need to open up Git Bash (or another bash client) to complete the following commands</p>
-<code><pre>
+<code><pre class="console">
 # Configure Git:
 $ git config --global user.name "My Name"
 $ git config --global user.email "myemail@gmail.com"
@@ -95,8 +101,11 @@ $ git config --global user.email "myemail@gmail.com"
 $ npm install -g gulp bower
 </pre></code>
   </section>
-</div>
-<div class="guide-through clearfix">
-  <a class="previous" ui-sref="tutorial">Tutorial Outline</a>
-  <a class="next" ui-sref="systemSetup2">System Setup: Checkout the Started App Template</a>
+
+<div ng-include src="'/app/modules/core/components/buttons.html'"></div>
+
+<div class="notes">
+  <p>Since this is a workshop, you’ll be writing and running code over the next few hours. Let’s take a few minutes now to be sure that everybody is set up with the necessary development environment.</p>
+
+  <p>If you need more detailed instructions for your system, you will find those on the Playing With Fire website at the URL listed.</p>
 </div>

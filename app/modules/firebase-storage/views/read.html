@@ -1,0 +1,61 @@
+<div class="section">{{vm.section}}</div>
+<h1>{{vm.title}}</h1>
+
+<div class="firebase-storage">
+  <div>
+    <p>Metadata includes
+      <ul>
+        <li>Name</li>
+        <li>Size</li>
+        <li>content Type (MIME Type)</li>
+        <li>fullPath</li>
+        <li>downloadURLs</li>
+      </ul>
+    </p>
+  </div>
+  <div>
+    <div>
+      <pre><code>// Create a reference to the file whose
+// metadata we want to retrieve
+var ref = firebase.storage().ref()
+  .child('images/myMeme.png');
+
+// Get metadata properties
+ref.getMetadata()
+.then(function(metadata) {
+  // Metadata now contains the metadata
+  // for 'images/myMeme.png'
+}).catch(function(error) {
+  // Uh-oh, an error occurred!
+});</code></pre>
+    </div>
+  </div>
+</div>
+
+<div ng-include src="'/app/modules/core/components/buttons.html'"></div>
+
+<div class="notes">
+  <p><b>MAM Say:</b> Once you have a reference to your Firebase storage bucket you are able to retrieve the metadata including the download url from a storage location and filename.</p>
+  <p>The example here shows how you can access the file myMeme.png and then do something with it.</p>
+  <p><b>Comment:</b> We don’t actually use this in the app</p>
+
+  <p><b>File Metadata Properties:</b></p>
+  <ul>
+    <li>bucket</li>
+    <li>generation</li>
+    <li>metageneration</li>
+    <li>fullPath</li>
+    <li>name</li>
+    <li>size</li>
+    <li>timeCreated</li>
+    <li>updated</li>
+    <li>md5Hash</li>
+    <li>cacheControl</li>
+    <li>contentDisposition</li>
+    <li>contentEncoding</li>
+    <li>contentLanguage</li>
+    <li>contentType</li>
+    <li>downloadURLs</li>
+    <li>customMetadata</li>
+  </ul>
+</div>

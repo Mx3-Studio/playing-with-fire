@@ -1,4 +1,5 @@
-<h1>Getting Started: Load Starter Database</h1>
+<div class="section">{{vm.section}}</div>
+<h1><img src="/app/images/doStuffIcon.svg" alt="action">{{vm.title}}</h1>
 
 <div class="gettingStarted">
   <div>
@@ -36,8 +37,9 @@
 
 </div>
 
+<div ng-include src="'/app/modules/core/components/buttons.html'"></div>
 
-<div class="guide-through clearfix">
-  <a class="previous" ui-sref="gettingStarted">Getting Started: Setup the Firebase Console Account</a>
-  <a class="next" ui-sref="gettingStarted3">Getting Started: Configure App Initialization</a>
+<div class="notes">
+  <p>You’ll also need to prepare your database by loading the sample data provided and removing all security restrictions from your database. (The database instructions are on the next page on the website)</p>
+  <p>NOTE: You don’t ever want to leave a database in this unrestricted state. We are doing this here so that we can introduce Firebase to you one step at a time. We will be correcting this security deficiency later in the workshop.</p>
 </div>

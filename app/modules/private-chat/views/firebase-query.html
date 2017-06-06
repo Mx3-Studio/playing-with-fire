@@ -1,0 +1,62 @@
+<div class="section">{{vm.section}}</div>
+<h1>{{vm.title}}</h1>
+<div class="gettingStarted">
+  <div>
+    <div>
+      <p>Returns data from a database location that is ordered and filtered by one of the Firebase methods</p>
+      <p>.orderByChild(): specifies the child key to order the results by</p>
+      <p>.equalTo(): Return items equal to the specified key or value, depending on the order-by method chosen</p>
+    </div>
+    <div>
+      <pre><code>var db = firebase.database().ref();
+query = 'user@email.com';
+
+db.child('profiles')
+.orderByChild('email')
+.equalTo(query));</code></pre>
+    </div>
+  </div>
+</div>
+<div ng-include src="'/app/modules/core/components/buttons.html'"></div>
+
+<div class="notes">
+  <p><b>MAM Say:</b> Firebase queries are used to filter and sort data from the database. We will be using the .orderByChild() and .equalTo() methods in our project today, but there are many more available such as .orderByKey(), .startAt(), and endAt(). In the example to the right we are returning only the profiles that that have a child “email” equal to the query email address “user@email.com”.</p>
+  <p><b>Finished query:</b> vm.searchResults = $firebaseArray(FirebaseRef.db.child('profiles').orderByChild('email').equalTo(email));</p>
+  <p><b>Firebase Definition:</b> “A Query sorts and filters the data at a Database location so only a subset of the child data is included. This can be used to order a collection of data by some attribute (for example, height of dinosaurs) as well as to restrict a large list of items (for example, chat messages) down to a number suitable for synchronizing to the client. Queries are created by chaining together one or more of the filter methods defined here.”</p>
+
+  <p><b>Full API:</b></p>
+  <p>Sort</p>
+  <ul>
+    <li>orderByChild(): Order results by the value of a specified child key.</li>
+    <li>orderByKey(): Order results by child keys.</li>
+    <li>orderByValue(): Order results by child values.</li>
+  </ul>
+
+  <p>Filter</p>
+  <ul>
+    <li>limitToFirst(): Sets the maximum number of items to return from the beginning of the ordered list of results.</li>
+    <li>limitToLast(): Sets the maximum number of items to return from the end of the ordered list of results.</li>
+    <li>startAt(): Return items greater than or equal to the specified key or value, depending on the order-by method chosen.</li>
+    <li>endAt(): Return items less than or equal to the specified key or value, depending on the order-by method chosen.</li>
+    <li>equalTo(): Return items equal to the specified key or value, depending on the order-by method chosen.</li>
+  </ul>
+
+  <p>Query Methods:</p>
+  <ul>
+    <li>endAt(): Creates a Query with the specific ending point.</li>
+    <li>equalTo(): Creates a Query that includes children that match a specified value.</li>
+    <li>isEqual(): Returns whether or not the current and provided query represent the same location, have the same query parameters, and are from the same instance of firebase.app.App</li>
+    <li>limitToFirst(): Generates a new Query limited to the first specific number of children.</li>
+    <li>limitToLast():  Generates a new Query object limited to the last specific number of children.</li>
+    <li>off(): Detaches a callback previously attached with on().</li>
+    <li>on(): Listens for data changes at a particular location.</li>
+    <li>once(): Listens for exactly one event of the specified event type, and then stops listening.</li>
+    <li>orderByChild():  Generates a new Query object ordered by the specified child key.</li>
+    <li>orderByKey(): Generates a new Query object ordered by key. Sorts the results of a query by their (ascending) key values.</li>
+    <li>orderByPriority: Generates a new Query object ordered by priority.</li>
+    <li>orderByValue: Generates a new Query object ordered by value.</li>
+    <li>startAt: Creates a Query with the specified starting point.</li>
+    <li>toJSON: Returns a JSON-serializable representation of this object.</li>
+    <li>toString: Gets the absolute URL for this location.</li>
+  </ul>
+</div>

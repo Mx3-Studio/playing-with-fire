@@ -1,0 +1,29 @@
+
+  <div class="section">{{vm.section}}</div>
+  <h1>{{vm.title}}</h1>
+  <div class="gettingStarted">
+    <div>
+      <div>
+        <p>This will overwrite any data at this location and all child locations.</p>
+        <p>Returns: non-null firebase.Promise containing void Resolves when write to server is complete.ence; resolves when write is complete, but can be used immediately as the Reference to the child location.</p>
+      </div>
+      <div>
+<pre><code>var myData = {
+  content: 'Hello, World!',
+  timestamp: Date.now()
+}
+
+var db = firebase.database().ref();
+var itemRef = db
+  .child('/chats')
+  .child(chatId)
+.set(myData);
+
+itemRef.then(function(snapshot) {
+  console.log(snapshot);
+});</code></pre>
+    </div>
+  </div>
+</div>
+
+<div ng-include src="'/app/modules/core/components/buttons.html'"></div>

@@ -1,0 +1,53 @@
+
+  <div class="section">{{vm.section}}</div>
+  <h1>{{vm.title}}</h1>
+  <div class="gettingStarted">
+    <div>
+      <div>
+        <p>OAuth Providers
+          <ul>
+            <li>Google</li>
+            <li>Facebook</li>
+            <li>Twitter</li>
+            <li>GitHub</li>
+          </ul>
+        </p>
+        <p>Username / Password
+          <ul>
+            <li>Account reset</li>
+            <li>Email verification</li>
+            <li>Credential protection</li>
+          </ul>
+        </p>
+        <p>Anonymous Authentication</p>
+      </div>
+      <div>
+<pre><code>// Firebase API OAuth Login
+firebase.auth()
+.signInWithPopup('google')
+.then(function(userCredential) {
+  console.log(userCredential);
+});
+
+// AngularFire OAuth Login
+$firebaseAuth()
+.$signInWithPopup('google')
+.then(function(user) {
+  console.log(user);
+});
+
+// AngularFire Logout
+$firebaseAuth().$signOut();</code></pre>
+    </div>
+  </div>
+</div>
+
+<div ng-include src="'/app/modules/core/components/buttons.html'"></div>
+
+<div class="notes">
+  <p>As developers you have probably heard at least one horror story of implementing OAuth within a web application. Even if it’s not you, at least one of your colleagues has likely spent sleepless nights wrestling with the nuances of this standard.</p>
+  <p>With Firebase, authentication with OAuth is one line of code - as you can see here. At present Firebase supports 4 popular OAuth providers. They also allow for anonymous authentication as well as Username and Password. In this case Firebase provides the necessary support for account reset, email verification, and credential protection.</p>
+  <p>Firebase supports the ability to link together accounts from multiple authentication providers so that they represent a single auth account within your Firebase system.</p>
+  <p>One thing Firebase does <i>not</i> do is provide any specific framework for user profiles. The auth system simply returns the metadata available from the given auth provider. It is up to you to store any necessary data within your database if you need to make use of it outside of the auth system.</p>
+  <p>We have provided a mechanism for user profiles within the starter app and sample data, but you will need to be sure to follow the instructions to make this work as expected.</p>
+</div>

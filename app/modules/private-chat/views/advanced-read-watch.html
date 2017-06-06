@@ -1,0 +1,34 @@
+<div class="section">{{vm.section}}</div>
+<h1>{{vm.title}}</h1>
+<div class="gettingStarted">
+  <div>
+    <div>
+      <h2>Introduction</h2>
+      <p>Registers an event listener which will be notified any time there is a change to the data. Returns an unregister function that, when invoked, will stop notifying the callback of changes.</p>
+      <p>Unregister using unwatch();</p>
+    </div>
+    <div>
+      <pre><code>// Load Friends (list of IDs)
+var friends = $firebaseArray(
+  firebase.database()
+  .ref()
+  .child('users')
+  .child(currentUser.uid)
+  .child('chats')
+);
+
+// Load list of Profiles
+friends.$watch(function (event) {
+    // Get Profile for each Friend
+});
+</code></pre>
+    </div>
+  </div>
+</div>
+<div ng-include src="'/app/modules/core/components/buttons.html'"></div>
+
+<div class="notes">
+  <p><b>MAM Say:</b> AngularFire allows you to use $watch to respond to changes in a dataset. You can use this to combine data sets (ProfileSvc) and update multiple items at once using update()</p>
+  <p>At the bottom of the example on the right we are watching the friends array for changes. When, for example, a friend is added, we can look up the profile for that friend in order to display their details in the view.</p>
+  <p>You can also use unwatch() to cancel event listeners and free the memory used by this object - this will also delete the local data, and changes will no longer be synchronized to or from the database.</p>
+</div>

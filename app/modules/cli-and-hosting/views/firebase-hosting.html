@@ -1,0 +1,26 @@
+<div class="section">{{vm.section}}</div>
+<h1>{{vm.title}}</h1>
+<div class="deploy-to-firebase-hosting">
+  <div>
+    <h2>Hosting configuration in firebase.json</h2>
+    <p>Ignore paths that shouldn’t be hosted</p>
+    <p>Specify redirects including wildcards and parameter capture</p>
+    <p>Rewrite URLs</p>
+    <p>Add Headers</p>
+  </div>
+  <div>
+    <h2>Hosting Console</h2>
+    <p>Current version</p>
+    <p>Deploy history</p>
+    <p>Easily roll back version</p>
+    <p>Add custom domains</p>
+    <p>See Usage report</p>
+  </div>
+</div>
+
+<div ng-include src="'/app/modules/core/components/buttons.html'"></div>
+
+<div class="notes">
+  <p>The firebase.json file contains a wide range of hosting options. These options are used both when serve-ing locally and when deploy-ing to the cloud. A common default option is to rewrite all URLs to “index.html” to support single-page apps such as our AngularJS application.</p>
+  <p>DEMO: Show the hosting console.</p>
+</div>

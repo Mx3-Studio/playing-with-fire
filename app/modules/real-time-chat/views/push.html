@@ -1,0 +1,38 @@
+
+  <div class="section">{{vm.section}}</div>
+  <h1>{{vm.title}}</h1>
+  <div class="gettingStarted">
+    <div>
+      <div>
+        <p>Generates a new child location using a unique key and returns its Reference.</p>
+        <p>Returns: non-null firebase.database.ThenableReference Combined Promise and Reference; resolves when write is complete, but can be used immediately as the Reference to the child location.</p>
+      </div>
+      <div>
+<pre><code>var myData = {
+  content: 'Hello, World!',
+  timestamp: Date.now()
+}
+
+var db = firebase.database().ref();
+var itemRef = db
+  .child('/chats')
+  .push(myData);
+
+var itemId = itemRef.key;
+
+itemRef.then(function(snapshot) {
+  console.log(snapshot);
+});</code></pre>
+    </div>
+  </div>
+</div>
+
+<div ng-include src="'/app/modules/core/components/buttons.html'"></div>
+
+<div class="notes">
+  <p>Some notes about Firebase-generated IDs:</p>
+  <ul>
+    <li>The ID is globally unique and generated immediately (Synchronously) by the API</li>
+    <li>The ID is sequentially sortable by time created - meaning that lists will automatically be sorted by the order in which the elements were created</li>
+  </ul>
+</div>
