@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html ng-app="app" lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Notes</title>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script>
+  $(function() {
+    $(document.body).keydown(function(ev) {
+      switch(ev.keyCode) {
+        case /*esc*/ 27:
+          window.close();
+          break;
+        case /*remote.right*/ 34: case /*key.right*/ 39:
+          window.opener.navigateNext("index.html");
+          break;
+        case /*remote.left*/ 33: case /*key.left*/ 37:
+          window.opener.navigatePrevious("index.html");
+          break;
+      }
+    });
+  });
+  </script>
+</head>
+<body>
+</body>
+</html>

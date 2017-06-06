@@ -27,7 +27,7 @@
 
   .controller('MainController', MainController);
 
-  function MainController($scope, $state, $rootScope, $location, $timeout) {
+  function MainController($scope, $state, $rootScope, $timeout) {
     var notesPopup = {};
     var vm = this;
     // vm.introduction = true;
@@ -95,29 +95,38 @@
       $state.go('error');
     });
 
+    window.navigateNext = function(root) {
+      var next = $('.next');
+      root = root || '';
+      if(next.length > 0) {
+        self.location = '/' + next.attr('href');
+      }
+    };
+    window.navigatePrevious = function(root) {
+      var previous = $('.previous');
+      root = root || '';
+      if(previous.length > 0) {
+        self.location = '/' + previous.attr('href');
+      }
+    };
+
     //Provide Keyboard & Remote Support
     vm.keyaction = function(ev) {
       //console.log('key', ev.keyCode);
       ev.preventDefault();
       switch(ev.keyCode) {
         case /*s*/ 83: case /*n*/ 78:
-          notesPopup = window.open("", "pwf:notes", "height=400,width=600,location=no,menubar=no,status=no,toolbar=no");
+          notesPopup = window.open("popup.html", "pwf:notes", "height=400,width=600,location=no,menubar=no,status=no,toolbar=no");
           refreshNotes();
           break;
         case /*linux:remote.blank*/ 190: case /*mac:remote.blank*/ 66:
           $(window.document.body).toggle();
           break;
         case /*remote.right*/ 34: case /*key.right*/ 39:
-          var next = $('.next');
-          if(next.length > 0) {
-            window.location = next.attr('href');
-          }
+          window.navigateNext();
           break;
         case /*remote.left*/ 33: case /*key.left*/ 37:
-          var previous = $('.previous');
-          if(previous.length > 0) {
-            window.location = previous.attr('href');
-          }
+          window.navigatePrevious();
           break;
       }
     };
@@ -140,7 +149,7 @@
           $(notesPopup.document.body).html( notes.length>len ? notes.html() : '<p></p>' );
         }, 200);
       }
-    }
+    };
 
   }
 
