@@ -199,6 +199,21 @@
           title: 'Resources'
         },
         next: {
+            url: 'firebaseUse',
+            title: 'Who Uses Firebase?'
+        }
+      })
+      .state('firebaseUse', {
+        url: '/firebase-use',
+        templateUrl: 'app/modules/introduction/views/firebase-use.html',
+        controller: 'IntroductionController as vm',
+        title: 'Who uses Firebase?',
+        section: 'Introduction',
+        previous: {
+          url: 'firebase',
+          title: 'What is Firebase?'
+        },
+        next: {
             url: 'goals',
             title: 'Workshop Goals'
         }
@@ -210,8 +225,8 @@
         title: 'Workshop Goals',
         section: 'Introduction',
         previous: {
-          url: 'firebase',
-          title: 'What is Firebase?'
+          url: 'firebaseUse',
+          title: 'Who uses Firebase?'
         },
         next: {
             url: 'whoWeAre',
@@ -467,7 +482,7 @@
         url: '/firebase-cli',
         templateUrl: 'app/modules/cli-and-hosting/views/firebase-cli.html',
         controller: 'CliAndHostingController as vm',
-        title: 'Firebae CLI',
+        title: 'Firebase CLI',
         section: 'Firebase CLI & Hosting',
         previous: {
           title: 'Create Messages',
