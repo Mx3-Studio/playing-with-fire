@@ -7,10 +7,10 @@
     <div>
       <h2>Instructions</h2>
       <p>Enable the Google Sign-in Provider from Firebase console</p>
-      <p>Implement methods in the FirebaseAuth service:
+      <p>Implement methods in the <dfn title="/src/client/app/services/firebase-auth.service.js">FirebaseAuth</dfn> service:
         <ul>
-          <li>authenticate()</li>
-          <li>logout()</li>
+          <li><code>authenticate()</code> (TODO [AUTH-1]) -- be sure to call our <code>processUserCredential</code> method upon successful login in order to create the User Profile and return the expected object (TODO [AUTH-2])</li>
+          <li><code>logout()</code> (TODO [AUTH-3])</li>
         </ul>
       </p>
       <h2>Hints</h2>

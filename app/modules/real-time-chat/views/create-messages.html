@@ -6,8 +6,13 @@
   <div>
     <div>
       <h2>Instructions</h2>
-      <p>Modify the createChat function in ChatController to get a key for the new chat object - /chats/{chatId}</p>
-      <p>Modify the createChat function to push the new chat to the chat thread by adding a path reference to the updates - /chats/{chatId}</p>
+      <p>Modify the <code>createChat</code> function in the <dfn title="/src/client/app/services/chat.service.js"><code>Chats</code> service</dfn> to:
+        <ul>
+          <li>Get a key for the new chat object from /chats/{chatId} (TODO [RTC-2])</li>
+          <li>Add the chat data to the updates object (TODO [RTC-3])</li>
+          <li>Add the chat message to the thread by performing the Firebase update (TODO [RTC-4])</li>
+        </ul>
+      </p>
       <h2>Hints</h2>
       <p>Use the push method on the Reference to push a new object to Firebase and obtain the unique key</p>
       <p>Update multiple items at once: <a href="https://firebase.google.com/docs/database/web/read-and-write#updating_or_deleting_data">Updating or deleting data</a></p>
@@ -16,6 +21,7 @@
           <li>content: the chat message</li>
           <li>timestamp: the UTC string representing the moment the chat was created</li>
         </ul>
+        <em>(See <code>createChatDataForProfile</code>)</em>
       </p>
       <h2>QA</h2>
       <p>Now run the application and visit <a href="http://localhost:8080/#/chats">http://localhost:8080/#/chats</a></p>

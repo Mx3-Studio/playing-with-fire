@@ -6,9 +6,9 @@
   <div>
     <div>
       <h2>Introduction</h2>
-      <p>Modify the createChat function in ChatController to write a new friend chat to both your private chat and your friend’s private chat - /users/{myUserId}/chats/{friendId}/{key} and /users/{friendId}/chats/{myUserId}/{key}</p>
-      <p>Update the FriendsController to read the list of friend chats - /users/{userId}/chats</p>
-      <p>Watch for changes to the list of friend chats and use the ProfileSvc to load the profile for each</p>
+      <p>Modify the <code>createChat</code> function in the Chats service to write a new friend chat to both your private chat and your friend’s private chat - /users/{myUserId}/chats/{friendId}/{key} and /users/{friendId}/chats/{myUserId}/{key} (TODO [PVT-3])</p>
+      <p>Update the <code>listFriends</code> method in the Friends service to read the list of friend chats - /users/{userId}/chats (TODO [PVT-4])</p>
+      <p>In the same method, watch for changes to the list of friend chats and use the Profile service to load the profile for each (TODO [PVT-4])</p>
       <p>Modify the database Rules in the Firebase console to reflect the following conditions:</p>
       <ul>
         <li>A user can write to their chat thread under another user’s object - /users/{friendId}/chats/{myUserId}</li>
