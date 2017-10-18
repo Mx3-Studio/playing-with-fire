@@ -50,6 +50,11 @@ footer a[rel=license] img {
   width: 80px;
   height: 15px;
 }
+dfn {
+  font-style: normal;
+  border-bottom: 1px dotted #404040;
+  cursor: help;
+}
 .notes {
   display: none;
 }

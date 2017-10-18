@@ -7,8 +7,8 @@
   <div>
     <div>
       <h2>Introduction</h2>
-      <p>Update the searchUsers method in FriendsController to search for a profile with an email address matching the submitted value - /profiles</p>
-      <p>Update the ChatController to get a private chat thread when a friend parameter is used - /users/{myUserId}/chats/{friendId}</p>
+      <p>Update the <code>searchFriends</code> method in the <dfn title="/src/client/app/services/friends.service.js">Friends service</dfn> to search for a profile with an email address matching the submitted value - /profiles (TODO [PVT-1])</p>
+      <p>Update the <code>listChatsWithFriend</code> method in the Chats service to get a private chat thread when a friend parameter is used - /users/{myUserId}/chats/{friendId} (TODO [PVT-2])</p>
       <h2>Hints</h2>
       <p>Firebase query - <a href="https://firebase.google.com/docs/reference/js/firebase.database.Query" target="_blank">Firebase Database Query</a></p>
       <p>Create a firebase Query from a Reference - <a href="https://firebase.google.com/docs/reference/js/firebase.database.Reference#orderByChild" target="_blank">Firebase Database Reference</a></p>

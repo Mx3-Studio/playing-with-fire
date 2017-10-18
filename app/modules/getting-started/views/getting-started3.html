@@ -8,8 +8,11 @@
   <div>
     <div><img src="app/images/screenshots/addFirebaseToWebApp.png" alt=""></div>
     <div>
-      <p>Copy the configuration script, then open up FirebaseRef service in your Fireside project and add the initialization script you copied out of the Firebase Console.</p>
-      <p>You will also need to return the Database Reference from FirebaseRef as "db"</p>
+      <p>Copy the configuration script, then open up the <dfn title="/src/client/app/services/firebase-ref.service.js">FirebaseRef</dfn> service in your Fireside project and add the initialization script you copied out of the Firebase Console. (TODO [START-1])</p>
+      <p>You will also need to return the Database Reference from FirebaseRef as "db". (TODO [START-2])</p>
+<code><pre>
+firebase.database().ref();  
+</pre></code>
       <p>Save the file, then run the project</p>
 <code><pre class="console">
 $ gulp serve-dev

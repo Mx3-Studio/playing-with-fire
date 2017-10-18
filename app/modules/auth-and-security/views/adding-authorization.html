@@ -6,7 +6,12 @@
   <div>
     <div>
       <h2>Instructions</h2>
-      <p>Update the Routes in app.routes.js to correctly resolve the currentUser which should be optional on / and /hashtag/:hash but required on /friends and /friends/:friend</p>
+      <p>Update the Routes in <dfn title="/src/client/app/app.routes.js">Routes</dfn> to correctly resolve the <code>currentUser</code>.
+        <ul>
+          <li><code>currentUser</code> should be optional for / and /hashtag/:hash routes (TODO [AUTH-7])</li>
+          <li>authentication is required for /friends and /friends/:friend routes (TODO [AUTH-8])</li>
+        </ul>
+      </p>
       <h2>Hints</h2>
       <li>AngularFire provided methods for Angular Router resolution: <a href="https://github.com/firebase/angularfire/blob/master/docs/reference.md#waitforsignin" target="_blank">API Reference | AngularFire: $waitForSignIn()</a></li>
       <h2>QA</h2>

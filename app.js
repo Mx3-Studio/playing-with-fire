@@ -773,25 +773,25 @@
           url: 'firebaseStorageWrite'
         },
         next: {
-          title: 'Deploy with Cordova',
-          url: 'deployToCordova'
-        }
-      })
-      .state('deployToCordova', {
-        url: '/deploy-to-cordova',
-        templateUrl: 'app/modules/challenges/views/challenges-cordova.html',
-        controller: 'ChallengesController as vm',
-        title: 'Deploy With Cordova',
-        section: 'Challenges',
-        previous: {
-          title: 'Add Image To Chat',
-          url: 'addImageToChat'
-        },
-        next: {
           title: 'Other Firebase Features',
           url: 'otherFirebaseFeatures'
         }
       })
+      // .state('deployToCordova', {
+      //   url: '/deploy-to-cordova',
+      //   templateUrl: 'app/modules/challenges/views/challenges-cordova.html',
+      //   controller: 'ChallengesController as vm',
+      //   title: 'Deploy With Cordova',
+      //   section: 'Challenges',
+      //   previous: {
+      //     title: 'Add Image To Chat',
+      //     url: 'addImageToChat'
+      //   },
+      //   next: {
+      //     title: 'Other Firebase Features',
+      //     url: 'otherFirebaseFeatures'
+      //   }
+      // })
 
       .state('otherFirebaseFeatures', {
         url: '/other-firebase-features',
@@ -800,8 +800,8 @@
         title: 'Other Firebase Features',
         section: 'Closing Remarks',
         previous: {
-          title: 'Deploy With Cordova',
-          url: 'deployToCordova'
+          title: 'Add Image To Chat',
+          url: 'addImageToChat'
         },
         next: {
           title: 'Finish',
