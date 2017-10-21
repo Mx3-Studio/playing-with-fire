@@ -113,19 +113,22 @@
     //Provide Keyboard & Remote Support
     vm.keyaction = function(ev) {
       //console.log('key', ev.keyCode);
-      ev.preventDefault();
       switch(ev.keyCode) {
         case /*s*/ 83: case /*n*/ 78:
+          ev.preventDefault();
           notesPopup = window.open("popup.html", "pwf:notes", "height=400,width=600,location=no,menubar=no,status=no,toolbar=no");
           refreshNotes();
           break;
         case /*linux:remote.blank*/ 190: case /*mac:remote.blank*/ 66:
+          ev.preventDefault();
           $(window.document.body).toggle();
           break;
         case /*remote.right*/ 34: case /*key.right*/ 39:
+          ev.preventDefault();
           window.navigateNext();
           break;
         case /*remote.left*/ 33: case /*key.left*/ 37:
+          ev.preventDefault();
           window.navigatePrevious();
           break;
       }

@@ -8,7 +8,7 @@
       <h2>Instructions</h2>
       <p>Implement the <code>getProfileByID</code> method in the <dfn title="/src/client/app/services/profile.service.js">ProfileService</dfn> to return the user profile from /users/{userId}/profile (TODO [AUTH-4])</p>
       <p>Implement the <code>saveProfile</code> method in the ProfileService to store the user profile to the database under /users/{userId}/profile (TODO [AUTH-5])</p>
-      <p>Update the <code>createChat</code> method in the Chats service to add the user attributes to the chat object (attributes defined below in the Hints section) (TODO [AUTH-6])</p>
+      <p>Update the <code>createChatDataForProfile</code> method in the Chats service to add the user attributes to the chat object (attributes defined below in the Hints section) (TODO [AUTH-6])</p>
       <h2>Hints</h2>
       <p>Use $firebaseObject to load the User Profile: <a href="https://github.com/firebase/angularfire/blob/master/docs/reference.md#firebaseobject" target="_blank"></a>API Reference | AngularFire: $firebaseObject</p>
       <p>Chats should now have the additional attributes:
