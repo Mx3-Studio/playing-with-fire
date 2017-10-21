@@ -28,8 +28,11 @@
 });
 
 function getUser($firebaseAuth) {
-  return $firebaseAuth
-    .$waitForSignIn();
+  return $firebaseAuth.$waitForSignIn();
+}
+
+function requireUser($firebaseAuth) {
+  return $firebaseAuth.$requireSignIn();
 }</code></pre>
     </div>
   </div>
